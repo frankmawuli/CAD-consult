@@ -1,7 +1,8 @@
 {
   "permissions": {
     "allow": [
-      "mcp__plugin_figma_figma__get_design_context"
+      "mcp__plugin_figma_figma__get_design_context",
+      "PowerShell($bytes = [System.IO.File]::ReadAllBytes\\(\"D:\\\\CAD\\\\next-app\\\\public\\\\images\\\\nav-logo.png\"\\); $header = $bytes[0..7] | ForEach-Object { $_.ToString\\(\"X2\"\\) }; $header -join \" \")"
     ]
   }
 }

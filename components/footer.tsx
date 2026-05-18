@@ -1,3 +1,4 @@
+import Image from "next/image"
 const footerLinks = ["Home", "About Us", "Training Centre", "Services", "Contact Us"]
 const socials = [
   { label: "Facebook", href: "#" },
@@ -13,7 +14,7 @@ export function Footer() {
         {/* Brand */}
         <div>
           <div className="flex items-center gap-3 mb-5">
-            <img src="/images/footer-logo.png" alt="CAD logo" className="h-10 w-auto" />
+            <Image src="/images/footer-logo.svg" alt="CAD logo" width={40} height={40} className="h-10 w-auto" />
             <span className="font-semibold text-[1.7rem] leading-tight">CAD Consult Gh</span>
           </div>
           <p className="text-[0.95rem] leading-relaxed text-justify text-white/90">

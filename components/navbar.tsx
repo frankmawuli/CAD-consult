@@ -3,6 +3,7 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { useState } from "react"
+import Image from "next/image"
 
 const NAV_LINKS = [
   { label: "Home", href: "/" },
@@ -21,7 +22,7 @@ export function Navbar() {
       <div className="max-w-[1400px] mx-auto h-[68px] lg:h-[90px] flex items-center justify-between px-5 lg:px-10">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 lg:gap-3" onClick={() => setOpen(false)}>
-          <img src="/images/nav-logo.png" alt="CAD logo" className="h-9 lg:h-12 w-auto" />
+        <Image src="/images/nav-logo.svg" alt="CAD logo" width={50} height={50} className="h-10 w-auto" />
           <span className="font-semibold text-[#0e3874] text-lg lg:text-2xl leading-tight">
             CAD Consult Gh
           </span>
