@@ -46,7 +46,7 @@ export function Footer() {
             <span className="font-semibold text-[1.7rem] leading-tight">CAD Consult Gh</span>
           </div>
           <p className="text-[0.95rem] leading-relaxed text-justify text-white/90">
-            CAD Consult GH is a wholly Ghanaian-owned engineering and surveying company incorporated
+            CAD Consult GH is a wholly Ghanaian owned engineering and surveying company incorporated
             in March 2001, with offices located at the Tycan Office Complex, off Achimota School Road.
           </p>
         </div>
