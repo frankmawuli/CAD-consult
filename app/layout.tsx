@@ -1,9 +1,9 @@
 import { Poppins, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
-import { cn } from "@/lib/utils";
-import { Navbar } from "@/components/navbar";
-import { Footer } from "@/components/footer";
+import { cn } from "@/lib/utils"
+import { Navbar } from "@/components/navbar"
+import { Footer } from "@/components/footer"
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -25,15 +25,20 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", poppins.variable)}
+      className={cn(
+        "antialiased",
+        fontMono.variable,
+        "font-sans",
+        poppins.variable
+      )}
     >
-      <body className="min-h-screen  bg-white">
+      <body className="min-h-screen bg-white max-w-[3000px] mx-auto">
         <ThemeProvider>
           <Navbar />
           {children}
+
           <Footer />
-     
-          </ThemeProvider>
+        </ThemeProvider>
       </body>
     </html>
   )

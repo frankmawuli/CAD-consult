@@ -50,14 +50,14 @@ function ServicePanel({
 
 export function ServicesSection() {
   return (
-    <section>
+    <section className="lg:px-[5%]">
       <div className="bg-white py-20 px-10 text-center">
         <h2 className="font-semibold text-black text-[clamp(2.2rem,4vw,4.375rem)] leading-[1.1] tracking-[-0.04em]">
           A Wide Range Of What We Do
         </h2>
       </div>
 
-      <ServicePanel
+      <ServicePanel 
         imageUrl="/images/engineering-bg.jpg"
         heading={"ENGINEERING AND\nCONSULTING\nSERVICES"}
         items={[

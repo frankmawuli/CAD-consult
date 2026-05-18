@@ -19,7 +19,7 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
-      <div className="max-w-[1400px] mx-auto h-[68px] lg:h-[90px] flex items-center justify-between px-5 lg:px-10">
+      <div className="h-17 lg:h-22.5 flex items-center justify-between px-[5%]">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 lg:gap-3" onClick={() => setOpen(false)}>
         <Image src="/images/nav-logo.svg" alt="CAD logo" width={50} height={50} className="h-10 w-auto" />
