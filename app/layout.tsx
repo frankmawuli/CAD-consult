@@ -1,10 +1,15 @@
-import { Geist, Geist_Mono, Inter } from "next/font/google"
-
+import { Poppins, Geist_Mono } from "next/font/google"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils";
+import { Navbar } from "@/components/navbar";
+import { Footer } from "@/components/footer";
 
-const inter = Inter({subsets:['latin'],variable:'--font-sans'})
+const poppins = Poppins({
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  variable: "--font-sans",
+})
 
 const fontMono = Geist_Mono({
   subsets: ["latin"],
@@ -20,10 +25,15 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={cn("antialiased", fontMono.variable, "font-sans", inter.variable)}
+      className={cn("antialiased", fontMono.variable, "font-sans", poppins.variable)}
     >
-      <body>
-        <ThemeProvider>{children}</ThemeProvider>
+      <body className="min-h-screen  bg-white">
+        <ThemeProvider>
+          <Navbar />
+          {children}
+          <Footer />
+     
+          </ThemeProvider>
       </body>
     </html>
   )
