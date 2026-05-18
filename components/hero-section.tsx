@@ -1,10 +1,14 @@
+import Image from "next/image"
+
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex flex-col">
-      <img
+      <Image
         src="/images/hero-bg.jpg"
         alt=""
-        className="absolute inset-0 w-full h-full object-cover"
+        fill
+        className="object-cover"
+        priority
       />
       <div className="absolute inset-0 bg-black/[0.67]" />
 
