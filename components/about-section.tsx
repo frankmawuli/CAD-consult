@@ -1,6 +1,6 @@
 export function AboutSection() {
   return (
-    <section className="bg-white py-14 lg:py-20 px-5 sm:px-10">
+    <section className="bg-white py-14 lg:py-20 px-5 sm:px-10 mt-24">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-16 items-start">
         <div className="bg-[#d9d9d9] w-full aspect-[595/571] flex items-center justify-center">
           <img

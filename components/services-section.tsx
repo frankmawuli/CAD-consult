@@ -50,7 +50,7 @@ function ServicePanel({
 
 export function ServicesSection() {
   return (
-    <section className="lg:px-[5%]">
+    <section className="px-[5%]">
       <div className="bg-white py-20 px-10 text-center">
         <h2 className="font-semibold text-black text-[clamp(2.2rem,4vw,4.375rem)] leading-[1.1] tracking-[-0.04em]">
           A Wide Range Of What We Do
@@ -79,8 +79,7 @@ export function ServicesSection() {
         items={[
           "Total Stations (Robotic, Autolock, Mechanical)",
           "GPS/GNSS RTK Systems Spectra Precision / Nikon Survey Products",
-          "Echo Sounders, LiDAR and Aerial Imaging Drones",
-          "Unmanned Surface Vehicles (USV)",
+          "Echo Sounders, Single and Multi-Beam, LiDAR and Aerial Imaging Drones Unmanned Surface Vehicles (USV)",
           "Softwares (AutoCAD, Civil 3D, Map 3D, Agrisoft, Eagle Point Software)",
           "Digital and Automatic Levelling Instruments",
           "CHC GPS and Positioning Equipment",

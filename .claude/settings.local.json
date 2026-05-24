@@ -2,7 +2,16 @@
   "permissions": {
     "allow": [
       "mcp__plugin_figma_figma__get_design_context",
-      "PowerShell($bytes = [System.IO.File]::ReadAllBytes\\(\"D:\\\\CAD\\\\next-app\\\\public\\\\images\\\\nav-logo.png\"\\); $header = $bytes[0..7] | ForEach-Object { $_.ToString\\(\"X2\"\\) }; $header -join \" \")"
+      "PowerShell($bytes = [System.IO.File]::ReadAllBytes\\(\"D:\\\\CAD\\\\next-app\\\\public\\\\images\\\\nav-logo.png\"\\); $header = $bytes[0..7] | ForEach-Object { $_.ToString\\(\"X2\"\\) }; $header -join \" \")",
+      "Skill(figma:figma-implement-design)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/training)",
+      "Bash(npx playwright *)",
+      "Bash(mkdir -p D:/CAD/next-app/public/images/logos)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/f98bfa15-8c7b-4d96-8466-b0cae28f22b2\" -o nikon.png)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/c954c369-be31-40f6-a00e-623fad148701\" -o trimble.png)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/3e351761-5c32-44f9-9bce-93c5c9d7a3d6\" -o spectra.png)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/01c11653-704f-4559-9bce-f0499a71e94d\" -o chcnav.png)"
     ]
   }
 }

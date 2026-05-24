@@ -64,7 +64,7 @@ const socials = [
 export function Footer() {
   return (
     <footer className="bg-[#0e3874] text-white">
-      <div className="grid grid-cols-1 gap-10 px-[5%] pt-12 pb-10 md:grid-cols-2 lg:grid-cols-12 lg:gap-12 lg:pt-16">
+      <div className="grid grid-cols-1 gap-10 px-[5%] pt-12 pb-10 md:grid-cols-2 lg:grid-cols-13 lg:gap-12 lg:pt-16">
         {/* Brand */}
         <div className="lg:col-span-6">
           <div className="mb-5 flex items-center gap-3">
@@ -90,7 +90,7 @@ export function Footer() {
         </div>
 
         {/* Links */}
-        <div className="lg:col-span-1">
+        <div className="lg:col-span-2">
           <h3 className="mb-6 text-[1.875rem] font-semibold">Links</h3>
           <ul className="space-y-3 text-[1.0625rem]">
             {footerLinks.map((link) => (
@@ -104,7 +104,7 @@ export function Footer() {
         </div>
 
         {/* Working Hours */}
-        <div className="lg:col-span-2">
+        <div className="lg:col-span-3">
           <h3 className="mb-6 text-[1.875rem] font-semibold">Working Hours</h3>
           <p className="text-[1.0625rem]">Weekdays 9:00AM – 5:00PM</p>
         </div>
