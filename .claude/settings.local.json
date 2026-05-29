@@ -11,7 +11,15 @@
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/f98bfa15-8c7b-4d96-8466-b0cae28f22b2\" -o nikon.png)",
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/c954c369-be31-40f6-a00e-623fad148701\" -o trimble.png)",
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/3e351761-5c32-44f9-9bce-93c5c9d7a3d6\" -o spectra.png)",
-      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/01c11653-704f-4559-9bce-f0499a71e94d\" -o chcnav.png)"
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/01c11653-704f-4559-9bce-f0499a71e94d\" -o chcnav.png)",
+      "mcp__plugin_figma_figma__get_screenshot",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/3f99763f-e1f0-4982-a326-59a8a9918baf\" -o /tmp/footer-screenshot.png)",
+      "Bash(del *)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/1160428d-b21e-49d5-9acb-c12373230736\" -o west-africa-map.png)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/83709932-6e27-40c2-aa50-5a3113973872\" -o about-hero-bg.jpg)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/cf55b998-fbe9-4965-983d-b7543c2376bf\" -o flag-burkina-faso.png)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/a31f7583-4856-4057-b990-cf8cd9e148af\" -o flag-sierra-leone.png)",
+      "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/4a4fe021-f01b-40af-88b5-0641b6d86614\" -o flag-nigeria.png)"
     ]
   }
 }

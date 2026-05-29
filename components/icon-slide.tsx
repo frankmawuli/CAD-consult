@@ -56,6 +56,8 @@ function LogoItem({ logo }: { logo: Logo }) {
     <Image
       src={logo.src}
       alt={logo.alt}
+      width={160}
+      height={56}
       className="m-auto h-14 w-auto max-w-full object-contain"
     />
   )
@@ -66,7 +68,7 @@ export function IconSlider() {
     const slider = new Glide(".glide-09", {
       type: "carousel",
       autoplay: 1,
-      animationDuration: 4500,
+      animationDuration: 1000,
       animationTimingFunc: "linear",
       perView: 5,
       gap: 48,
@@ -83,7 +85,10 @@ export function IconSlider() {
   }, [])
 
   return (
-    <section className="w-full overflow-hidden bg-white py-10 border-y border-gray-100 mt-24">
+    <section className="w-full overflow-hidden bg-white py-10 mt-24 lg:my-28">
+      <h2 className="font-semibold text-black text-[clamp(1.75rem,3.5vw,3.8rem)] tracking-[-0.04em] text-center mb-10 lg:mb-32 px-5 ">
+        Authorized Distributors
+      </h2>
       <div className="glide-09 relative w-full px-[5%]">
         <div data-glide-el="track">
           <ul className="[backface-visibility:hidden] [transform-style:preserve-3d] [touch-action:pan-Y] [will-change:transform] relative flex w-full overflow-hidden p-0">

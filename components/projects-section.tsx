@@ -27,10 +27,14 @@ function NavButton({
   return (
     <button
       onClick={onClick}
-      className={`absolute top-1/2 -translate-y-1/2 z-50
-      w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-[#0E3874] flex items-center justify-center
-      ${flipped ? "right-0 translate-x-1/2" : "left-0 -translate-x-1/2"}
-      `}
+      className={`absolute top-1/2 -translate-y-1/2
+      w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-[#0E3874]
+      flex items-center justify-center shadow-lg transition-all
+      ${
+        flipped
+          ? "right-[-2rem] sm:right-[-3rem] lg:right-[-2rem]"
+          : "left-[-2rem] sm:left-[-3rem] lg:left-[-2rem]"
+      }`}
     >
       <svg
         width="18"
@@ -58,7 +62,9 @@ export function ProjectsSection() {
   useEffect(() => {
     const mq = window.matchMedia("(max-width: 639px)")
     setIsMobile(mq.matches)
+
     const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
+
     mq.addEventListener("change", handler)
     return () => mq.removeEventListener("change", handler)
   }, [])
@@ -78,12 +84,12 @@ export function ProjectsSection() {
   const offset = isMobile ? 200 : 360
 
   return (
-    <section className="py-16 lg:py-24 bg-white overflow-hidden">
-      <h2 className="font-semibold text-black text-[clamp(1.75rem,3.5vw,3.8rem)] tracking-[-0.04em] text-center mb-10 lg:mb-14 px-5">
+    <section className="py-16 lg:py-24 bg-white overflow-hidden lg:mb-24">
+      <h2 className="font-semibold text-black text-[clamp(1.75rem,3.5vw,3.8rem)] tracking-[-0.04em] text-center mb-10 lg:mb-32 px-5">
         Projects We&apos;ve Delivered
       </h2>
 
-      <div className="relative max-w-7xl mx-auto h-[280px] sm:h-[420px] lg:h-[480px] flex items-center justify-center">
+      <div className="relative max-w-[90rem] mx-auto h-[280px] sm:h-[420px] lg:h-[480px] flex items-center justify-center">
 
         <NavButton onClick={prev} />
         <NavButton onClick={next} flipped />
@@ -91,7 +97,6 @@ export function ProjectsSection() {
         {PROJECTS.map((project, index) => {
           let position = index - active
 
-          // loop handling
           if (position < -1) position = 2
           if (position > 1) position = -2
 
@@ -102,23 +107,19 @@ export function ProjectsSection() {
               key={project.src}
               className="absolute transition-all duration-500 ease-in-out"
               style={{
-                transform: `
-                  translateX(${position * offset}px)
-                  scale(${isCenter ? 1 : 0.82})
-                `,
+                transform: `translateX(${position * offset}px) scale(${
+                  isCenter ? 1 : 0.82
+                })`,
                 zIndex: isCenter ? 30 : 10,
                 opacity: Math.abs(position) > 1 ? 0 : 1,
               }}
             >
               <div
-                className={`
-                  overflow-hidden
-                  bg-white
-                  shadow-xl
-                  transition-all duration-500
-                  ${isCenter
-                    ? "w-[280px] h-[200px] sm:w-[520px] sm:h-[340px] lg:w-[680px] lg:h-[480px]"
-                    : "w-[240px] h-[170px] sm:w-[460px] sm:h-[300px] lg:w-[720px] lg:h-[340px]"
+                className={`overflow-hidden bg-white shadow-xl transition-all duration-500
+                  ${
+                    isCenter
+                      ? "w-[280px] h-[200px] sm:w-[520px] sm:h-[340px] lg:w-[680px] lg:h-[480px]"
+                      : "w-[240px] h-[170px] sm:w-[460px] sm:h-[300px] lg:w-[720px] lg:h-[340px]"
                   }
                 `}
               >
@@ -132,18 +133,6 @@ export function ProjectsSection() {
             </div>
           )
         })}
-      </div>
-
-      {/* Dot indicators */}
-      <div className="flex justify-center gap-2 mt-8">
-        {PROJECTS.map((_, i) => (
-          <button
-            key={i}
-            onClick={() => setActive(i)}
-            className={`w-2.5 h-2.5 rounded-full transition-colors ${i === active ? "bg-[#0e3874]" : "bg-[#0e3874]/30"}`}
-            aria-label={`Go to slide ${i + 1}`}
-          />
-        ))}
       </div>
     </section>
   )

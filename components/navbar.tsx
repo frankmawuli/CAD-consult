@@ -22,7 +22,7 @@ export function Navbar() {
       <div className="h-17 lg:h-22.5 flex items-center justify-between px-[5%]">
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2 lg:gap-3" onClick={() => setOpen(false)}>
-        <Image src="/images/nav-logo.svg" alt="CAD logo" width={50} height={50} className="h-10 w-auto" />
+        <Image src="/images/nav-logo.svg" alt="CAD logo" width={50} height={50} className="h-10 w-10" />
           <span className="font-semibold text-[#0e3874] text-lg lg:text-2xl leading-tight">
             CAD Consult Gh
           </span>
@@ -34,8 +34,8 @@ export function Navbar() {
             <li key={href}>
               <Link
                 href={href}
-                className={`font-medium text-lg transition-colors hover:text-[#ffc425] ${
-                  pathname === href ? "text-[#ffc425]" : "text-[#0e3874]"
+                className={`font-medium text-lg transition-colors  ${
+                  pathname === href ?  " text-[#0e3874]":"text-[#0e3874]"
                 }`}
               >
                 {label}
@@ -71,8 +71,8 @@ export function Navbar() {
                 <Link
                   href={href}
                   onClick={() => setOpen(false)}
-                  className={`block py-3 border-b border-gray-100 font-medium text-base transition-colors hover:text-[#ffc425] ${
-                    pathname === href ? "text-[#ffc425]" : "text-[#0e3874]"
+                  className={`block py-3 border-b border-gray-100 font-medium text-base transition-colors  ${
+                    pathname === href ? " text-[#0e3874]" : "text-[#0e3874]"
                   }`}
                 >
                   {label}

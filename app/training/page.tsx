@@ -3,9 +3,9 @@ import Image from "next/image"
 export default function TrainingPage() {
   return (
     <main>
-      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-5 sm:px-8">
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-5 sm:px-8 mb-40">
         <Image
-          src="/images/lab-bg.jpg"
+          src="/images/training.png"
           alt=""
           fill
           className="object-cover"
@@ -18,14 +18,14 @@ export default function TrainingPage() {
             COMING SOON
           </h1>
 
-          <p className="text-white text-[clamp(0.875rem,1.15vw,1.25rem)] max-w-4xl mt-8 lg:mt-12 leading-relaxed">
+          <p className="text-white text-[clamp(0.875rem,1.15vw,1.25rem)] max-w-6xl leading-relaxed ">
             Our team of professional engineers, technicians, and support staff brings deep expertise
             and hands-on experience both locally and internationally. We have proudly served clients
             including the Ghana Highway Authority, Newmont Ghana Gold, Anglogold Ashanti, the Ministry
             of Lands and Natural Resources, KNUST, and the Millennium Development Authority, among many others.
           </p>
 
-          <div className="mt-10 lg:mt-14 border-[3px] border-white px-10 lg:px-16 py-4 lg:py-5">
+          <div className="mt-5 lg:mt-10 border-[3px] border-white px-10 lg:px-16 py-4 lg:py-5">
             <span className="text-white text-[clamp(1rem,1.8vw,1.9375rem)] font-normal">
               CAD Consult Training Centre
             </span>
@@ -35,3 +35,4 @@ export default function TrainingPage() {
     </main>
   )
 }
+
