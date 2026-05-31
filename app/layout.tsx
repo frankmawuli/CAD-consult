@@ -32,7 +32,7 @@ export default function RootLayout({
         poppins.variable
       )}
     >
-      <body className="min-h-screen bg-white max-w-[3000px] mx-auto">
+      <body className="min-h-screen bg-white max-w-[3000px] mx-auto overflow-x-hidden">
         <ThemeProvider>
           <Navbar />
           {children}
