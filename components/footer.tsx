@@ -50,7 +50,7 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#0e3874] text-white">
+    <footer className="bg-[#0e3874] text-white ">
       {/* Main grid */}
       <div className="mx-auto w-full grid grid-cols-1 gap-10 px-[5%] pt-14 pb-10 md:grid-cols-2 lg:grid-cols-13 lg:gap-8 lg:pt-16">
 
@@ -99,7 +99,7 @@ export function Footer() {
         </div>
 
         {/* Get In Touch */}
-        <div className="lg:col-span-3">
+        <div className="lg:col-span-3 ">
           <h3 className="mb-6 text-[1.875rem] font-semibold">Get In Touch</h3>
           <p className="mb-2 text-[1.0625rem]">info@cadconsultgh.com.gh</p>
           <p className="mb-5 text-[1.0625rem] leading-relaxed">

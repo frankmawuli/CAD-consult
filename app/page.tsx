@@ -8,7 +8,7 @@ import { Footer } from "@/components/footer"
 
 export default function Page() {
   return (
-    <main>
+    <main className="lg:pb-52">
       <HeroSection />
       <AboutSection />
       <ServicesSection />

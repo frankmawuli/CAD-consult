@@ -1,143 +1,201 @@
-"use client"
+import Image from "next/image"
+import Link from "next/link"
 
-import { useState } from "react"
+const categories = [
+  { label: "All products",                  active: true  },
+  { label: "GNSS Sensors",                  active: false },
+  { label: "Hydrographic survey equipment", active: false },
+  { label: "Surveying Softwares",           active: false },
+  { label: "Manual guidance systems",       active: false },
+  { label: "Machine control services",      active: false },
+  { label: "Land levelling systems",        active: false },
+  { label: "New Arrivals",                  active: false, bold: true },
+  { label: "Products For Hiring",           active: false, bold: true },
+  { label: "Products On Discount",          active: false, bold: true },
+]
 
-// ─── Product data ────────────────────────────────────────────────────────────
-// The Figma shows 9 placeholder cards all named "Perimeter 8 Drone".
-// Replace `name`, `image`, and `slug` with real catalogue data when available.
+const products = [
+  {
+    name: "Delair-Tech UX5-HP\nAerial Imaging Drone",
+    image: "/images/products/drone-delair.jpg",
+    href: "#",
+  },
+  {
+    name: "CHCNAV i85",
+    image: "/images/products/chcnav-i85.png",
+    href: "#",
+  },
+  {
+    name: "CHCNAV ViLi i100",
+    image: "/images/products/chcnav-vili-i100.png",
+    href: "#",
+  },
+  {
+    name: "CHCNAV i85",
+    image: "/images/products/chcnav-ibase.png",
+    href: "#",
+  },
+  {
+    name: "CHCNAV CGI-830",
+    image: "/images/products/chcnav-cgi830.png",
+    href: "#",
+  },
+  {
+    name: "Autodesk Civil 3D:\nInfrastructure Design Software",
+    image: "/images/products/software-cgo2.png",
+    href: "#",
+  },
+  {
+    name: "CHCNAV ViLi i100",
+    image: "/images/products/chcnav-vili-i100.png",
+    href: "#",
+  },
+  {
+    name: "AutoCAD Map 3D",
+    image: "/images/products/software-cgo2.png",
+    href: "#",
+  },
+  {
+    name: "Delair-Tech UX5-HP\nAerial Imaging Drone",
+    image: "/images/products/drone-delair.jpg",
+    href: "#",
+  },
+  {
+    name: "CHCNAV APACHE 3",
+    image: "/images/products/chcnav-apache3.png",
+    href: "#",
+  },
+  {
+    name: "CHCNAV CTS-A100",
+    image: "/images/products/chcnav-cts-a100.png",
+    href: "/services/chcnav-cts-a100",
+  },
+  {
+    name: "CHCNAV CTS-M100",
+    image: "/images/products/chcnav-cts-m100.png",
+    href: "#",
+  },
+]
 
-const ALL_PRODUCTS = Array.from({ length: 9 }, (_, i) => ({
-  id: i + 1,
-  name: "Perimeter 8 Drone",
-  image: "/images/product-drone.jpg",
-  slug: `perimeter-8-drone-${i + 1}`,
-}))
-
-// ─── Search icon ─────────────────────────────────────────────────────────────
-function SearchIcon() {
+function ProductCard({ product }: { product: typeof products[0] }) {
   return (
-    <svg
-      width="22"
-      height="22"
-      viewBox="0 0 24 24"
-      fill="none"
-      stroke="#0e3874"
-      strokeWidth="2"
-      strokeLinecap="round"
-      strokeLinejoin="round"
-      className="flex-shrink-0"
-    >
-      <circle cx="11" cy="11" r="8" />
-      <path d="m21 21-4.35-4.35" />
-    </svg>
-  )
-}
-
-// ─── Product card ─────────────────────────────────────────────────────────────
-function ProductCard({ name, image }: { name: string; image: string }) {
-  return (
-    <div className="flex flex-col">
-      {/* Image */}
-      <div className="bg-[#e7e7e7] w-full aspect-[422/432] overflow-hidden">
-        <img src={image} alt={name} className="w-full h-full object-cover" draggable={false} />
+    <div className="bg-white flex flex-col items-center p-6 gap-4">
+      <div className="flex items-center justify-center h-[220px] w-full">
+        <Image
+          src={product.image}
+          alt={product.name.replace("\n", " ")}
+          width={240}
+          height={220}
+          className="max-h-[220px] w-auto object-contain"
+        />
       </div>
-
-      {/* Name */}
-      <p className="font-semibold text-black text-[1.1rem] text-center mt-3 mb-4">{name}</p>
-
-      {/* Action buttons */}
-      <div className="flex items-center gap-2 sm:gap-3">
-        <button className="flex-1 h-[38px] sm:h-[42px] border border-[#0e3874] rounded-[11px] text-[#0e3874] font-medium text-[0.82rem] sm:text-[0.95rem] hover:bg-[#0e3874] hover:text-white transition-colors">
+      <p className="font-semibold text-black text-[clamp(0.875rem,1vw,1.25rem)] text-center whitespace-pre-line leading-snug min-h-[2.8em] flex items-center">
+        {product.name}
+      </p>
+      <div className="flex gap-3 mt-auto w-full justify-center">
+        <Link
+          href={product.href}
+          className="border border-[#0e3874] text-[#0e3874] font-medium text-[0.6875rem] px-3 py-2 rounded-[9px] hover:bg-[#0e3874] hover:text-white transition-colors whitespace-nowrap"
+        >
           Product Details
-        </button>
-        <button className="flex-1 h-[38px] sm:h-[42px] bg-[#ffc425] rounded-[11px] text-white font-medium text-[0.82rem] sm:text-[0.95rem] hover:bg-[#e6b020] transition-colors">
+        </Link>
+        <Link
+          href={product.href}
+          className="bg-[#ffc425] text-white font-medium text-[0.6875rem] px-3 py-2 rounded-[9px] hover:bg-[#e6b020] transition-colors whitespace-nowrap"
+        >
           Request Item
-        </button>
+        </Link>
       </div>
     </div>
   )
 }
 
-// ─── Page ────────────────────────────────────────────────────────────────────
 export default function ServicesPage() {
-  const [query, setQuery] = useState("")
-  const [search, setSearch] = useState("")
-
-  const products = ALL_PRODUCTS.filter((p) =>
-    p.name.toLowerCase().includes(search.toLowerCase())
-  )
-
-  const handleSearch = () => setSearch(query)
-
   return (
-    <main>
-      {/* ── Hero ──────────────────────────────────────────────────────────── */}
-      <section className="relative flex flex-col items-center justify-center min-h-[55vh] sm:min-h-[70vh]">
-        <img
-          src="/images/hero-bg.jpg"
+    <main className="bg-[#f1f1f1]">
+
+      {/* ── Hero ── */}
+      <section className="relative min-h-[60vh] flex flex-col items-center justify-center text-center px-5">
+        <Image
+          src="/images/products/hero-bg.jpg"
           alt=""
-          className="absolute inset-0 w-full h-full object-cover"
+          fill
+          className="object-cover object-center"
+          priority
         />
         <div className="absolute inset-0 bg-black/[0.67]" />
-        <div className="relative z-10 text-center px-5 sm:px-8 pt-[68px] lg:pt-[90px] pb-14 sm:pb-24">
-          <h1 className="text-white font-semibold text-[clamp(3rem,10vw,10.3rem)] tracking-[-0.04em] leading-[1.05]">
+        <div className="relative z-10 pt-[80px] pb-16">
+          <h1 className="text-white font-semibold text-[clamp(3rem,10vw,10.3rem)] leading-[1.1] tracking-[-0.04em]">
             SALES
           </h1>
-          <p className="text-white text-[clamp(0.875rem,1.15vw,1.25rem)] max-w-4xl mx-auto mt-4 sm:mt-6 leading-relaxed">
+          <p className="text-white text-[clamp(0.875rem,1.15vw,1.25rem)] max-w-4xl mt-6 leading-relaxed mx-auto">
             Our team of professional engineers, technicians, and support staff brings deep expertise
             and hands-on experience both locally and internationally. We have proudly served clients
             including the Ghana Highway Authority, Newmont Ghana Gold, Anglogold Ashanti, the Ministry
-            of Lands and Natural Resources, KNUST, and the Millennium Development Authority, among
-            many others.
+            of Lands and Natural Resources, KNUST, and the Millennium Development Authority, among many others.
           </p>
         </div>
       </section>
 
-      {/* ── Toolbar: heading + search ──────────────────────────────────────── */}
-      <section className="bg-white px-5 sm:px-10 lg:px-16 pt-10 lg:pt-12 pb-6 lg:pb-8">
-        <div className="max-w-[1400px] mx-auto flex flex-col sm:flex-row sm:items-center justify-between gap-5 lg:gap-6">
-          {/* Heading */}
-          <h2 className="font-semibold text-[#0e3874] text-[1.5rem] sm:text-[1.75rem] lg:text-[2.1rem] whitespace-nowrap">
-            Our Core Services
-          </h2>
-
-          {/* Search bar — pill with embedded button */}
-          <div className="flex items-center border-[3px] border-[#0e3874] rounded-full overflow-hidden flex-1 max-w-[760px] h-[52px] lg:h-[64px] pl-4 lg:pl-5">
-            <SearchIcon />
+      {/* ── Search Bar ── */}
+      <section className="flex justify-center px-[5%] py-10">
+        <div className="flex items-center border-[3px] border-[#0e3874] rounded-full w-full max-w-3xl overflow-hidden">
+          <div className="flex items-center gap-2 px-5 flex-1">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-5 w-5 text-gray-500 flex-shrink-0">
+              <circle cx="11" cy="11" r="8" /><path d="m21 21-4.35-4.35" />
+            </svg>
             <input
               type="text"
-              placeholder="Search products…"
-              value={query}
-              onChange={(e) => setQuery(e.target.value)}
-              onKeyDown={(e) => e.key === "Enter" && handleSearch()}
-              className="flex-1 bg-transparent outline-none text-[#0e3874] placeholder:text-[#0e3874]/50 text-[0.9rem] lg:text-[1rem] px-2 lg:px-3"
+              placeholder="Describe what are you looking for?"
+              className="flex-1 py-3 text-[clamp(0.875rem,1vw,1.0625rem)] text-gray-600 placeholder:text-[#6a6a6a] bg-transparent focus:outline-none"
             />
-            <button
-              onClick={handleSearch}
-              className="h-full px-5 lg:px-8 bg-[#ffc425] text-[#0e3874] font-semibold text-[0.95rem] lg:text-[1.1rem] rounded-full hover:bg-[#e6b020] transition-colors"
-            >
-              Search
-            </button>
+          </div>
+          <button className="bg-[#ffc425] text-[#0e3874] font-medium text-[clamp(0.875rem,1.1vw,1.3125rem)] px-8 py-3 rounded-full m-1 hover:bg-[#e6b020] transition-colors whitespace-nowrap">
+            Search
+          </button>
+        </div>
+      </section>
+
+      {/* ── Sidebar + Products ── */}
+      <section className="px-[5%] pb-20 lg:pb-28">
+        <div className="flex flex-col lg:flex-row gap-10 lg:gap-12">
+
+          {/* Sidebar */}
+          <aside className="lg:w-52 flex-shrink-0">
+            <h2 className="text-[#0e3874] font-semibold text-[clamp(1.2rem,1.8vw,2rem)] mb-5">
+              Product Categories
+            </h2>
+            <ul className="space-y-[18px]">
+              {categories.map(({ label, active, bold }) => (
+                <li key={label} className="flex items-center gap-3">
+                  {active && (
+                    <span className="w-1 h-4 bg-[#ffc425] rounded-full flex-shrink-0" />
+                  )}
+                  <button
+                    className={`text-left text-[clamp(0.8125rem,0.95vw,1.0625rem)] leading-snug transition-colors ${
+                      active
+                        ? "font-semibold text-white bg-[#0e3874] px-3 py-1 rounded"
+                        : bold
+                        ? "font-semibold text-[#6a6a6a] hover:text-[#0e3874]"
+                        : "font-medium text-[#6a6a6a] hover:text-[#0e3874]"
+                    }`}
+                  >
+                    {label}
+                  </button>
+                </li>
+              ))}
+            </ul>
+          </aside>
+
+          {/* Product Grid */}
+          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+            {products.map((product, i) => (
+              <ProductCard key={i} product={product} />
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ── Product grid ──────────────────────────────────────────────────── */}
-      <section className="bg-white px-5 sm:px-10 lg:px-16 pb-16 lg:pb-24">
-        <div className="max-w-[1400px] mx-auto">
-          {products.length > 0 ? (
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 lg:gap-x-10 gap-y-10 lg:gap-y-14">
-              {products.map((product) => (
-                <ProductCard key={product.id} name={product.name} image={product.image} />
-              ))}
-            </div>
-          ) : (
-            <p className="text-center text-[#0e3874] text-xl py-20">
-              No products match &ldquo;{search}&rdquo;
-            </p>
-          )}
-        </div>
-      </section>
     </main>
   )
 }

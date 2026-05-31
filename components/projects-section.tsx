@@ -84,7 +84,7 @@ export function ProjectsSection() {
   const offset = isMobile ? 200 : 360
 
   return (
-    <section className="py-16 lg:py-24 bg-white overflow-hidden lg:mb-24">
+    <section className="py-16 lg:py-24 bg-white overflow-hidden lg:my-30">
       <h2 className="font-semibold text-black text-[clamp(1.75rem,3.5vw,3.8rem)] tracking-[-0.04em] text-center mb-10 lg:mb-32 px-5">
         Projects We&apos;ve Delivered
       </h2>

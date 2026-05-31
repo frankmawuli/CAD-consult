@@ -27,9 +27,11 @@ export function AboutSection() {
             including the Ghana Highway Authority, Newmont Ghana Gold, Anglogold Ashanti, the Ministry
             of Lands and Natural Resources, KNUST, and the Millennium Development Authority, among many others.
           </p>
-          <button className="bg-[#ffc425] text-[#0e3874] font-medium text-lg lg:text-xl px-8 lg:px-10 py-3 lg:py-4 hover:bg-[#0e3874] hover:text-white transition-colors">
-            Read more
-          </button>
+          <div className="flex justify-end">
+            <button className="bg-[#ffc425] text-[#0e3874] font-medium text-lg lg:text-xl px-8 lg:px-10 py-3 lg:py-4 hover:bg-[#0e3874] hover:text-white transition-colors">
+              Read more
+            </button>
+          </div>
         </div>
       </div>
     </section>

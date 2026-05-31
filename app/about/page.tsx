@@ -8,7 +8,7 @@ import { AboutStats }      from "@/components/about/about-stats"
 
 export default function AboutPage() {
   return (
-    <main className="bg-[#f1f1f1]">
+    <main className="bg-[#f1f1f1] pb-52">
       <AboutHero />
       <AboutCompany />
       <AboutCoreValues />

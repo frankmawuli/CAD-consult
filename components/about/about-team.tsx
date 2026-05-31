@@ -21,8 +21,8 @@ export function AboutTeam() {
               key={i}
               className="bg-white aspect-[9/11] flex flex-col items-center justify-end p-6 shadow-sm"
             >
-              <p className="font-semibold text-[#0e3874] text-lg">{member.name}</p>
-              <p className="text-gray-500 text-sm mt-1">{member.role}</p>
+              {/* <p className="font-semibold text-[#0e3874] text-lg">{member.name}</p> */}
+              {/* <p className="text-gray-500 text-sm mt-1">{member.role}</p> */}
             </div>
           ))}
         </div>

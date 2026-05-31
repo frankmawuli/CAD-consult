@@ -13,7 +13,7 @@ export function AboutMap() {
     <section className=" px-[5%] py-16 lg:py-24">
       <div className="max-w-[1728px] mx-auto">
         <h2 className="font-semibold text-black text-[clamp(2rem,4vw,3.8125rem)] tracking-[-0.04em] text-center mb-12 lg:mb-16">
-          Countries
+          Projects We've Work On
         </h2>
 
         {/* West Africa Map */}
@@ -29,6 +29,7 @@ export function AboutMap() {
 
         {/* Country flags */}
         <div className="flex flex-wrap justify-center gap-8 lg:gap-16">
+        
           {countries.map(({ name, flag }) => (
             <div key={name} className="flex flex-col items-center gap-3">
               <Image
