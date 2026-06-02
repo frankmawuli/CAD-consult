@@ -50,9 +50,9 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#0e3874] text-white">
+    <footer className="bg-[#0e3874] text-white w-10xl">
       {/* Main grid */}
-      <div className="mx-auto w-full grid grid-cols-1 gap-10 px-[5%] pt-14 pb-10 md:grid-cols-2 lg:grid-cols-13 lg:gap-8 lg:pt-16">
+      <div className="mx-auto w-full grid grid-cols-1 gap-10 px-[5%] pt-14 pb-10 md:grid-cols-2 lg:grid-cols-13 lg:gap-8 lg:pt-16 ">
 
         {/* Brand */}
         <div className="lg:col-span-5">

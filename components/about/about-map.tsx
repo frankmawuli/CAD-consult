@@ -6,6 +6,9 @@ const countries = [
   { name: "Nigeria",      flag: "/images/about/flag-nigeria.png"      },
   { name: "Guinea",       flag: "/images/about/flag-guinea.png"       },
   { name: "Benin",        flag: "/images/about/flag-benin.png"        },
+    { name: "Benin",        flag: "/images/about/flag-benin.png"        },
+  { name: "Benin",        flag: "/images/about/flag-benin.png"        },
+
 ]
 
 export function AboutMap() {
