@@ -16,7 +16,7 @@ export function AboutHero() {
         <h1 className="text-white font-semibold text-[clamp(3rem,10vw,10.3rem)] leading-[1.1] tracking-[-0.04em]">
           About Us
         </h1>
-        <p className="text-white text-[clamp(0.875rem,1.15vw,1.25rem)] max-w-6xl mt-4 lg:mt-2 leading-relaxed">
+        <p className="text-white text-[clamp(0.875rem,1.15vw,1.25rem)] max-w-5xl mt-4 lg:mt-2 leading-relaxed">
           Our team of professional engineers, technicians, and support staff brings deep expertise
           and hands-on experience both locally and internationally. We have proudly served clients
           including the Ghana Highway Authority, Newmont Ghana Gold, Anglogold Ashanti, the Ministry
