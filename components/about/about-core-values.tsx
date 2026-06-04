@@ -52,22 +52,7 @@ export function AboutCoreValues() {
           </div>
 
           {/* Download Profile button */}
-          <div className="flex lg:justify-end lg:items-end h-full pt-4 lg:pt-0">
-            <a
-              href="#"
-              className="inline-flex items-center gap-3 bg-[#0e3874] text-white font-medium text-[clamp(1rem,1.5vw,1.8125rem)] px-8 py-5 rounded-[21px] hover:bg-[#0b2d5e] transition-colors"
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 24 24"
-                fill="currentColor"
-                className="h-7 w-7 flex-shrink-0"
-              >
-                <path d="M12 16l-5-5h3V4h4v7h3l-5 5zm-7 2h14v2H5v-2z" />
-              </svg>
-              Download Profile
-            </a>
-          </div>
+      
         </div>
       </div>
     </section>
