@@ -86,7 +86,7 @@ export function ProjectsSection() {
 
   return (
     <section className="py-16 lg:py-24 bg-white overflow-hidden ">
-      <h2 className="font-semibold text-black text-[clamp(1.75rem,2vw,3.8rem)] tracking-[-0.04em] text-center mb-10 lg:mb-32 px-5">
+      <h2 className="font-semibold text-black text-[clamp(1.75rem,2.5vw,2.8rem)] tracking-[-0.04em] text-center mb-10 lg:mb-32 px-5">
         Projects We&apos;ve Delivered
       </h2>
 
@@ -119,8 +119,8 @@ export function ProjectsSection() {
                 className={`overflow-hidden bg-white shadow-xl transition-all duration-500
                   ${
                     isCenter
-                      ? "w-[280px] h-[200px] sm:w-100 sm:h-67.5 md:w-125 md:h-85 lg:w-170 lg:h-120"
-                      : "w-[240px] h-[170px] sm:w-85 sm:h-57.5 md:w-110 md:h-72.5 lg:w-180 lg:h-85"
+                      ? "w-[280px] h-[200px] sm:w-100 sm:h-67.5 md:w-125 md:h-85 lg:w-160 lg:h-140"
+                      : "w-[240px] h-[170px] sm:w-85 sm:h-57.5 md:w-110 md:h-72.5 lg:w-180 lg:h-96"
                   }
                 `}
               >
