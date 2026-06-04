@@ -17,7 +17,7 @@ export function HeroSection() {
           Cutting edge positioning solutions{" "}
           and applications software
         </h1>
-        <p className="text-white text-[clamp(0.875rem,1.15vw,1.25rem)] max-w-6xl mt-6 lg:mt-8 leading-relaxed">
+        <p className="text-white text-[clamp(0.875rem,1.15vw,1.25rem)] max-w-6xl mt-6 lg:mt-8 leading-relaxed xl:">
           Our team of professional engineers, technicians, and support staff brings deep expertise
           and hands-on experience both locally and internationally. We have proudly served clients
           including the Ghana Highway Authority, Newmont Ghana Gold, Anglogold Ashanti, the Ministry

@@ -18,24 +18,34 @@ export function Navbar() {
   const [open, setOpen] = useState(false)
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-sm">
-      <div className="h-17 lg:h-22.5 flex items-center justify-between px-[5%]">
+    <nav className="fixed top-0 right-0 left-0 z-50 bg-white shadow-sm">
+      <div className="flex h-17 items-center justify-between px-[5%] lg:h-22.5">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2 lg:gap-3" onClick={() => setOpen(false)}>
-        <Image src="/images/nav-logo.svg" alt="CAD logo" width={50} height={50} className="h-10 w-10" />
-          <span className="font-semibold text-[#0e3874] text-lg lg:text-2xl leading-tight">
+        <Link
+          href="/"
+          className="flex items-center gap-2 lg:gap-3"
+          onClick={() => setOpen(false)}
+        >
+          <Image
+            src="/images/nav-logo.svg"
+            alt="CAD Consult Gh logo"
+            width={48}
+            height={48}
+            className="h-11 w-auto"
+          />
+          <span className="text-lg leading-tight font-semibold text-[#0e3874] lg:text-2xl">
             CAD Consult Gh
           </span>
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden lg:flex items-center gap-8 xl:gap-10">
+        <ul className="hidden items-center gap-8 lg:flex xl:gap-10">
           {NAV_LINKS.map(({ label, href }) => (
             <li key={href}>
               <Link
                 href={href}
-                className={`font-medium text-lg transition-colors  ${
-                  pathname === href ?  " text-[#0e3874]":"text-[#0e3874]"
+                className={`text-lg font-medium transition-colors ${
+                  pathname === href ? "text-[#0e3874]" : "text-[#0e3874]"
                 }`}
               >
                 {label}
@@ -46,16 +56,32 @@ export function Navbar() {
 
         {/* Hamburger button — mobile only */}
         <button
-          className="lg:hidden p-2 -mr-1 text-[#0e3874]"
+          className="-mr-1 p-2 text-[#0e3874] lg:hidden"
           onClick={() => setOpen((o) => !o)}
           aria-label={open ? "Close menu" : "Open menu"}
         >
           {open ? (
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <svg
+              width="26"
+              height="26"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+            >
               <path d="M18 6 6 18M6 6l12 12" />
             </svg>
           ) : (
-            <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+            <svg
+              width="26"
+              height="26"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2.5"
+              strokeLinecap="round"
+            >
               <path d="M3 6h18M3 12h18M3 18h18" />
             </svg>
           )}
@@ -64,15 +90,15 @@ export function Navbar() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="lg:hidden bg-white border-t border-gray-100 px-5 pb-5">
+        <div className="border-t border-gray-100 bg-white px-5 pb-5 lg:hidden">
           <ul className="flex flex-col">
             {NAV_LINKS.map(({ label, href }) => (
               <li key={href}>
                 <Link
                   href={href}
                   onClick={() => setOpen(false)}
-                  className={`block py-3 border-b border-gray-100 font-medium text-base transition-colors  ${
-                    pathname === href ? " text-[#0e3874]" : "text-[#0e3874]"
+                  className={`block border-b border-gray-100 py-3 text-base font-medium transition-colors ${
+                    pathname === href ? "text-[#0e3874]" : "text-[#0e3874]"
                   }`}
                 >
                   {label}

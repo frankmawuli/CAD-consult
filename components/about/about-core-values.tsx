@@ -1,6 +1,6 @@
 export function AboutCoreValues() {
   return (
-    <section className="bg-[#f1f1f1] px-[5%] pb-16 lg:pb-24">
+    <section className="bg-[#f1f1f1] px-[5%] pb-16 lg:pb-32">
       <div className="max-w-[1728px] mx-auto">
 
         {/* Heading */}

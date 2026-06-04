@@ -13,7 +13,7 @@ const countries = [
 
 export function AboutMap() {
   return (
-    <section className=" px-[5%] py-16 lg:py-24">
+    <section className=" px-[5%] py-16 lg:py-32">
       <div className="max-w-[1728px] mx-auto">
         <h2 className="font-semibold text-black text-[clamp(2rem,4vw,3.8125rem)] tracking-[-0.04em] text-center mb-12 lg:mb-16">
           Projects We've Work On
