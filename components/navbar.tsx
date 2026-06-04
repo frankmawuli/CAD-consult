@@ -44,7 +44,7 @@ export function Navbar() {
             <li key={href}>
               <Link
                 href={href}
-                className={`text-lg font-medium transition-colors ${
+                className={`text-lg font-medium transition-colors hover:text-accent ${
                   pathname === href ? "text-[#0e3874]" : "text-[#0e3874]"
                 }`}
               >
