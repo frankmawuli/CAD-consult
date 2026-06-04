@@ -16,21 +16,19 @@ type Logo = {
 const SPECTRA_SCALE = 56 / 94
 
 const logos: Logo[] = [
-  { src: "/images/logos/nikon.svg",   alt: "Nikon" },
-  { src: "/images/logos/trimble.svg", alt: "Trimble" },
+  { src: "/images/logos/Nikon Logo.svg",   alt: "Nikon" },
+  { src: "/images/logos/Trimble Logo.svg", alt: "Trimble" },
   {
-    src: "/images/logos/spectra.png",
+    src: "/images/logos/Spectra Logo.svg",
     alt: "Spectra Geospatial",
-    crop: {
-      containerW: Math.round(358 * SPECTRA_SCALE),
-      imgH:       Math.round(201.4 * SPECTRA_SCALE),
-      topOffset:  Math.round(-56.2 * SPECTRA_SCALE),
-    },
+    
   },
-  { src: "/images/logos/chcnav.svg",  alt: "CHCNAV" },
-  { src: "/images/logos/delair.png",  alt: "Delair" },
-  { src: "/images/logos/logo5.svg",   alt: "Partner" },
-  { src: "/images/logos/logo6.svg",   alt: "Partner" },
+  { src: "/images/logos/Autodesk Logo.svg",  alt: "Autodesk" },
+  { src: "/images/logos/Delaair Logo.svg",  alt: "Delair" },
+  { src: "/images/logos/Seco Logo.svg",   alt: "Seco" },
+  { src: "/images/logos/Trimble Logo.svg",   alt: "Trimble" },
+    { src: "/images/logos/CHCNAV.svg",   alt: "Trimble" },
+
 ]
 
 function LogoItem({ logo }: { logo: Logo }) {

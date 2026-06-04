@@ -22,7 +22,7 @@ export function AboutMap() {
         {/* West Africa Map */}
         <div className="flex justify-center mb-12 lg:mb-16">
           <Image
-            src="/images/about/west-africa-map.png"
+            src="/images/about/globe.svg"
             alt="West Africa map showing CAD Consult GH operation countries"
             width={1246}
             height={901}

@@ -57,16 +57,19 @@ function NavButton({
 
 export function ProjectsSection() {
   const [active, setActive] = useState(1)
-  const [isMobile, setIsMobile] = useState(false)
+  const [offset, setOffset] = useState(360)
 
   useEffect(() => {
-    const mq = window.matchMedia("(max-width: 639px)")
-    setIsMobile(mq.matches)
-
-    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches)
-
-    mq.addEventListener("change", handler)
-    return () => mq.removeEventListener("change", handler)
+    const update = () => {
+      const w = window.innerWidth
+      if (w < 640) setOffset(200)
+      else if (w < 768) setOffset(240)
+      else if (w < 1024) setOffset(300)
+      else setOffset(360)
+    }
+    update()
+    window.addEventListener("resize", update)
+    return () => window.removeEventListener("resize", update)
   }, [])
 
   const prev = () => {
@@ -81,15 +84,13 @@ export function ProjectsSection() {
     )
   }
 
-  const offset = isMobile ? 200 : 360
-
   return (
     <section className="py-16 lg:py-24 bg-white overflow-hidden lg:my-30">
       <h2 className="font-semibold text-black text-[clamp(1.75rem,3.5vw,3.8rem)] tracking-[-0.04em] text-center mb-10 lg:mb-32 px-5">
         Projects We&apos;ve Delivered
       </h2>
 
-      <div className="relative max-w-[90rem] mx-auto h-[280px] sm:h-[420px] lg:h-[480px] flex items-center justify-center">
+      <div className="relative max-w-[90rem] mx-auto h-[280px] sm:h-90 md:h-105 lg:h-120 flex items-center justify-center">
 
         <NavButton onClick={prev} />
         <NavButton onClick={next} flipped />
@@ -118,8 +119,8 @@ export function ProjectsSection() {
                 className={`overflow-hidden bg-white shadow-xl transition-all duration-500
                   ${
                     isCenter
-                      ? "w-[280px] h-[200px] sm:w-[520px] sm:h-[340px] lg:w-[680px] lg:h-[480px]"
-                      : "w-[240px] h-[170px] sm:w-[460px] sm:h-[300px] lg:w-[720px] lg:h-[340px]"
+                      ? "w-[280px] h-[200px] sm:w-100 sm:h-67.5 md:w-125 md:h-85 lg:w-170 lg:h-120"
+                      : "w-[240px] h-[170px] sm:w-85 sm:h-57.5 md:w-110 md:h-72.5 lg:w-180 lg:h-85"
                   }
                 `}
               >

@@ -13,7 +13,7 @@ export function HeroSection() {
       <div className="absolute inset-0 bg-black/[0.67]" />
 
       <div className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-5 sm:px-8 pt-[68px] lg:pt-[90px]">
-        <h1 className="text-white font-semibold text-[clamp(2rem,5vw,5.3rem)] leading-[1.1] tracking-[-0.04em] max-w-[1500px]">
+        <h1 className="text-white font-semibold text-[clamp(1.5rem,5vw,5.3rem)] lg:text-[clamp(4rem,5vw,5.3rem)] leading-[1.1] tracking-[-0.04em] max-w-[1500px] ">
           Cutting edge positioning solutions{" "}
           and applications software
         </h1>
