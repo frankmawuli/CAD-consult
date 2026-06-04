@@ -26,7 +26,7 @@ function ProductCard({ product }: { product: Product }) {
           Product Details
         </Link>
         <Link
-          href="#"
+          href="/services/request"
           className="bg-[#ffc425] text-white font-medium text-[0.6875rem] px-3 py-2 rounded-[9px] hover:bg-[#e6b020] transition-colors whitespace-nowrap"
         >
           Request Item
@@ -109,7 +109,7 @@ export default async function ProductDetailPage({
         {/* Button occupies the next grid cell (right col, last row) */}
         <div className="flex items-end">
           <Link
-            href="#"
+            href="/services/request"
             className="bg-[#ffc425] text-black font-semibold px-10 py-3 rounded-md hover:bg-[#e8b321] transition"
           >
             Request Item

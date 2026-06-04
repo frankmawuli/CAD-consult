@@ -1,6 +1,285 @@
+"use client"
 
-export default function RequestPage() {
+import Image from "next/image"
+import { useState } from "react"
+
+const ACCESSORIES = [
+  "Carrying Case",
+  "Extra Battery Pack",
+  "Tripod & Tribrach",
+  "Survey Pole & Prism",
+  "Data Cable Set",
+  "Field Data Collector",
+  "Extended Warranty",
+  "Solar Charger",
+]
+
+const COUNTRIES = [
+  "Ghana",
+  "Nigeria",
+  "Côte d'Ivoire",
+  "Senegal",
+  "Sierra Leone",
+  "Guinea",
+  "Burkina Faso",
+  "Benin",
+  "Togo",
+  "Other",
+]
+
+const MAX_WORDS = 150
+
+function wordCount(text: string) {
+  return text.trim() === "" ? 0 : text.trim().split(/\s+/).length
+}
+
+const chevronDown = (
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" className="h-5 w-5">
+    <path fillRule="evenodd" d="M12.53 16.28a.75.75 0 0 1-1.06 0l-7.5-7.5a.75.75 0 0 1 1.06-1.06L12 14.69l6.97-6.97a.75.75 0 1 1 1.06 1.06l-7.5 7.5Z" clipRule="evenodd" />
+  </svg>
+)
+
+const inputCls =
+  "w-full border-[1.5px] border-[#0e3874] rounded-xl px-4 py-4 text-[clamp(0.9rem,1vw,1.25rem)] placeholder:text-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30"
+const selectCls =
+  "w-full border-[1.5px] border-[#0e3874] rounded-xl px-4 py-4 text-[clamp(0.9rem,1vw,1.25rem)] text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30 appearance-none cursor-pointer"
+const labelCls =
+  "block font-medium text-[#0e3874] text-[clamp(0.9rem,1.1vw,1.25rem)] mb-2"
+
+export default function ProductRequest() {
+  const [message, setMessage] = useState("")
+  const [submitted, setSubmitted] = useState(false)
+  const words = wordCount(message)
+  const overLimit = words > MAX_WORDS
+
+  function handleSubmit(e: React.FormEvent) {
+    e.preventDefault()
+    if (overLimit) return
+    setSubmitted(true)
+  }
+
   return (
-    <div>Request Page</div>
+    <main className="bg-[#f5f5f5]">
+
+      {/* ── Hero ── */}
+      
+
+      {/* ── Product Request Form ── */}
+      <section className="px-[5%] py-16 lg:py-52 ">
+        <div className="max-w-[1486px] mx-auto bg-white rounded-[48px] px-[5%] py-14 lg:py-20 shadow-sm">
+          <h2 className="font-semibold text-black text-[clamp(1.75rem,3.5vw,3.25rem)] tracking-[-0.03em] text-center mb-12">
+            Product Request
+          </h2>
+
+          {submitted ? (
+            <div className="flex flex-col items-center gap-6 py-16">
+              <div className="w-20 h-20 rounded-full bg-[#0e3874]/10 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0e3874" className="w-10 h-10">
+                  <path fillRule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd" />
+                </svg>
+              </div>
+              <p className="text-[#0e3874] font-semibold text-[clamp(1.25rem,2vw,1.75rem)] text-center">
+                Your request has been submitted!
+              </p>
+              <p className="text-gray-500 text-[clamp(0.9rem,1.2vw,1.125rem)] text-center max-w-lg">
+                Thank you for reaching out. Our team will get back to you shortly.
+              </p>
+              <button
+                onClick={() => setSubmitted(false)}
+                className="mt-4 text-[#0e3874] underline underline-offset-4 text-[clamp(0.875rem,1vw,1rem)] hover:text-[#0b2d5e] transition-colors"
+              >
+                Submit another request
+              </button>
+            </div>
+          ) : (
+            <form onSubmit={handleSubmit} className="space-y-8">
+
+              {/* I would like to */}
+              <div>
+                <label className={labelCls}>
+                  I would like to:<span className="text-[#ed1c24]">*</span>
+                </label>
+                <div className="relative">
+                  <select className={selectCls} defaultValue="" required>
+                    <option value="" disabled />
+                    <option>Request a quote</option>
+                    <option>Get product information</option>
+                    <option>Schedule a demo</option>
+                    <option>Technical support</option>
+                    <option>Partnership enquiry</option>
+                    <option>Other</option>
+                  </select>
+                  <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#0e3874]">
+                    {chevronDown}
+                  </div>
+                </div>
+              </div>
+
+              {/* First + Last Name */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className={labelCls}>
+                    First Name<span className="text-[#ed1c24]">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="eg. Joshua"
+                    required
+                    className={inputCls}
+                  />
+                </div>
+                <div>
+                  <label className={labelCls}>
+                    Last Name<span className="text-[#ed1c24]">*</span>
+                  </label>
+                  <input
+                    type="text"
+                    placeholder="eg. Mensah"
+                    required
+                    className={inputCls}
+                  />
+                </div>
+              </div>
+
+              {/* Work Email + Phone */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className={labelCls}>
+                    Work Email<span className="text-[#ed1c24]">*</span>
+                  </label>
+                  <input
+                    type="email"
+                    placeholder="you@company.com"
+                    required
+                    className={inputCls}
+                  />
+                </div>
+                <div>
+                  <label className={labelCls}>
+                    Phone Number<span className="text-[#ed1c24]">*</span>
+                  </label>
+                  <input
+                    type="tel"
+                    placeholder="+233 59 511 5011"
+                    required
+                    className={inputCls}
+                  />
+                  <p className="text-[#0e3874] text-[clamp(0.75rem,0.9vw,1.0625rem)] mt-2">
+                    Please include country code.
+                  </p>
+                </div>
+              </div>
+
+              {/* Country + Accessories */}
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                <div>
+                  <label className={labelCls}>
+                    Country<span className="text-[#ed1c24]">*</span>
+                  </label>
+                  <div className="relative">
+                    <select className={selectCls} defaultValue="Ghana" required>
+                      {COUNTRIES.map((c) => (
+                        <option key={c}>{c}</option>
+                      ))}
+                    </select>
+                    <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#0e3874]">
+                      {chevronDown}
+                    </div>
+                  </div>
+                </div>
+                <div>
+                  <label className={labelCls}>
+                    Accessories (Optional)
+                  </label>
+                  <div className="relative">
+                    <select className={selectCls} defaultValue="">
+                      <option value="" />
+                      {ACCESSORIES.map((a) => (
+                        <option key={a}>{a}</option>
+                      ))}
+                    </select>
+                    <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#0e3874]">
+                      {chevronDown}
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Message */}
+              <div>
+                <label className={labelCls}>
+                  Your Message (Optional)
+                </label>
+                <textarea
+                  rows={6}
+                  placeholder="Tell us about your project, team size, timeline or any specific questions you have. The more detail you share, the better we can help."
+                  value={message}
+                  onChange={(e) => setMessage(e.target.value)}
+                  className={`${inputCls} resize-none ${overLimit ? "border-[#ed1c24] focus:ring-[#ed1c24]/30" : ""}`}
+                />
+                <p className={`text-[clamp(0.75rem,0.9vw,1.125rem)] mt-2 font-medium ${overLimit ? "text-[#ed1c24]" : "text-[#0e3874]"}`}>
+                  {words} / {MAX_WORDS} words{overLimit ? " — please shorten your message" : ""}
+                </p>
+              </div>
+
+              {/* Submit */}
+              <div className="flex justify-end">
+                <button
+                  type="submit"
+                  disabled={overLimit}
+                  className="bg-[#0e3874] text-white font-medium text-[clamp(1rem,1.4vw,1.625rem)] px-12 py-5 rounded-xl hover:bg-[#0b2d5e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                >
+                  Submit message
+                </button>
+              </div>
+            </form>
+          )}
+        </div>
+      </section>
+
+      {/* ── Head Office + QR Code ── */}
+      <section className="px-[5%] pb-16 lg:pb-52">
+        <div className="max-w-[1486px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+
+          {/* Office details */}
+          <div>
+            <h2 className="text-[#0e3874] font-semibold text-[clamp(1.5rem,2.5vw,2.3125rem)] mb-6">
+              Head Office Location
+            </h2>
+            <div className="space-y-3 text-black text-[clamp(0.95rem,1.3vw,1.625rem)] leading-relaxed">
+              <p>Tetteh Okuley Avenue Abofu Off Achimota School Road</p>
+              <p>
+                <span className="font-medium">Post Office Address:</span>
+                {"  "}P.O Box LG 723
+              </p>
+              <p>
+                <span className="font-medium">Telephone No.:</span>
+                {" "}(233-27) 7603276 / (233-0303) 934116
+              </p>
+              <p>
+                <span className="font-medium">Fax No.:</span>
+                {" "}(233-0302) 407459
+              </p>
+            </div>
+          </div>
+
+          {/* QR Code */}
+          <div className="flex flex-col items-center lg:items-end gap-4">
+            <div className="bg-[#0e3874] rounded-[32px] p-8 flex flex-col items-center gap-4">
+              {/* eslint-disable-next-line @next/next/no-img-element */}
+              <img
+                src="/images/contact/qr-code.svg"
+                alt="QR code – Join us online"
+                className="w-[200px] h-[200px] lg:w-[280px] lg:h-[280px]"
+              />
+            </div>
+            <p className="font-semibold text-[#0e3874] text-[clamp(1rem,1.5vw,1.6875rem)]">
+              Join Us Online
+            </p>
+          </div>
+        </div>
+      </section>
+
+    </main>
   )
 }
