@@ -37,7 +37,7 @@ export function AboutCompany() {
         </div>
 
         {/* Image placeholder */}
-        <div className="bg-[#d9d9d9] rounded-sm flex items-center justify-center aspect-[4/3] w-full">
+        <div className="bg-[#d9d9d9] rounded-sm flex items-center justify-center aspect-[4/3] w-full ">
           <Image
             src="/images/about-placeholder.png"
             alt="CAD Consult office"
