@@ -25,7 +25,6 @@ const logos: Logo[] = [
   { src: "/images/logos/Autodesk Logo.svg", alt: "Autodesk" },
   { src: "/images/logos/Delaair Logo.svg", alt: "Delair" },
   { src: "/images/logos/Seco Logo.svg", alt: "Seco" },
-  { src: "/images/logos/CHCNAV.svg", alt: "CHHCNAV" },
 ]
 
 function LogoItem({ logo }: { logo: Logo }) {
