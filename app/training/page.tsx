@@ -25,8 +25,8 @@ export default function TrainingPage() {
             of Lands and Natural Resources, KNUST, and the Millennium Development Authority, among many others.
           </p>
 
-          <div className="mt-5 lg:mt-10 border-[3px] border-white px-10 lg:px-16 py-4 lg:py-5">
-            <span className="text-white text-[clamp(1rem,1.8vw,1.9375rem)] font-normal">
+          <div className="mt-5 lg:mt-10 border-[3px] border-white px-10 lg:px-16 py-4 lg:py-5 text-white hover:bg-white hover:text-[#0e3874] transition-colors">
+            <span className="text-[clamp(1rem,1.8vw,1.9375rem)] font-normal">
               CAD Consult Training Centre
             </span>
           </div>
