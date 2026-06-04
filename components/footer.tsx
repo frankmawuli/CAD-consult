@@ -62,7 +62,7 @@ export function Footer() {
               alt="CAD Consult Gh logo"
               width={48}
               height={48}
-              className="h-11 w-auto"
+              className="h-11 w-[57px]"
             />
             <span className="text-[1.7rem] font-semibold leading-tight">
               CAD Consult Gh
@@ -131,7 +131,7 @@ export function Footer() {
           <Link href="#" className="transition-colors hover:text-[#ffc425]">
             Privacy Policy
           </Link>
-          <Link href="#" className="transition-colors hover:text-[#ffc425]">
+          <Link href="#" className="transition-colors hover:text-[#ffc425] lg:mr-[100px]">
             Terms of Service
           </Link>
         </div>

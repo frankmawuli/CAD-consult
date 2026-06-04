@@ -8,8 +8,8 @@ import Image from "next/image"
 const NAV_LINKS = [
   { label: "Home", href: "/" },
   { label: "About Us", href: "/about" },
-  { label: "Training Centre", href: "/training" },
   { label: "Services", href: "/services" },
+  { label: "Training Centre", href: "/training" },
   { label: "Contact Us", href: "/contact" },
 ]
 
@@ -31,7 +31,7 @@ export function Navbar() {
             alt="CAD Consult Gh logo"
             width={48}
             height={48}
-            className="h-11 w-auto"
+            className="h-11 w-[57px]"
           />
           <span className="text-lg leading-tight font-semibold text-[#0e3874] lg:text-2xl">
             CAD Consult Gh

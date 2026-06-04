@@ -13,11 +13,11 @@ type Logo = {
 
 // Spectra crop math (from Figma): container 358×94, image h=214.23% of 94=201.4px, top=-59.77% of 94=-56.2px
 // Scale to slider h=56px: factor = 56/94 = 0.596
-const SPECTRA_SCALE = 56 / 94
 
 const logos: Logo[] = [
   { src: "/images/logos/Nikon Logo.svg", alt: "Nikon" },
   { src: "/images/logos/Trimble Logo.svg", alt: "Trimble" },
+
   {
     src: "/images/logos/Spectra Logo.svg",
     alt: "Spectra Geospatial",
