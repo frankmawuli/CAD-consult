@@ -83,7 +83,7 @@ export function IconSlider() {
 
   return (
     <section className="w-full overflow-hidden bg-white py-10 mt-24 lg:my-42">
-      <h2 className="font-semibold text-black text-[clamp(1.75rem,3.5vw,3.8rem)] tracking-[-0.04em] text-center mb-10 lg:mb-32 px-5 ">
+      <h2 className="font-semibold text-black text-[clamp(1.75rem,2.5vw,2.8rem)] tracking-[-0.04em] text-center mb-10 lg:mb-28 px-5 ">
         Authorized Distributors
       </h2>
       <div className="glide-09 relative w-full px-[5%]">

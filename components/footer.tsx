@@ -103,9 +103,9 @@ export function Footer() {
           <h3 className="mb-6 text-[1.875rem] font-semibold">Get In Touch</h3>
           <p className="mb-2 text-[1.0625rem]">info@cadconsultgh.com.gh</p>
           <p className="mb-5 text-[1.0625rem] leading-relaxed">
-            (233-27) 7603276 / (233-0303) 934116
+           (233) 0303 934116/ (233) 2776 03276  
             <br />
-            (233-20) 9981240 / (233-020) 4342261
+            (233) 2099 81240 / (233) 0204 342261
           </p>
           <ul className="grid grid-cols-2 gap-2 text-[1.0625rem]">
             {socials.map(({ label, href, icon }) => (
