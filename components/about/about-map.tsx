@@ -6,8 +6,8 @@ const countries = [
   { name: "Nigeria",      flag: "/images/about/flag-nigeria.png"      },
   { name: "Guinea",       flag: "/images/about/flag-guinea.png"       },
   { name: "Benin",        flag: "/images/about/flag-benin.png"        },
-    { name: "Benin",        flag: "/images/about/flag-benin.png"        },
-  { name: "Benin",        flag: "/images/about/flag-benin.png"        },
+    { name: "Gambia",        flag: "/images/about/gambia-flag.png"        },
+  { name: "Gabon",        flag: "/images/about/gabon-flag.png"        },
 
 ]
 
