@@ -12,22 +12,22 @@ export function HeroSection() {
       />
       <div className="absolute inset-0 bg-black/[0.67]" />
 
-      <div className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-5 sm:px-8 pt-[68px] lg:pt-[90px]">
-        <h1 className="text-white font-semibold text-[clamp(1.5rem,5vw,5.3rem)] lg:text-[clamp(4rem,5vw,5.3rem)] leading-[1.1] tracking-[-0.04em] max-w-[1500px] ">
+      <div className="relative z-10 flex flex-col items-center justify-center flex-1 text-center px-4 sm:px-6 pt-[54px] lg:pt-[72px]">
+        <h1 className="text-white font-semibold text-[clamp(1.2rem,4vw,4.24rem)] lg:text-[clamp(3.2rem,4vw,4.24rem)] leading-[1.1] tracking-[-0.04em] max-w-[1500px]">
           Cutting edge positioning solutions{" "}
           and applications software
         </h1>
-        <p className="text-white text-[clamp(0.875rem,1.15vw,1.25rem)] max-w-6xl mt-6 lg:mt-8 leading-relaxed xl:">
+        <p className="text-white text-[clamp(0.7rem,0.92vw,1rem)] max-w-6xl mt-5 lg:mt-6 leading-relaxed">
           Our team of professional engineers, technicians, and support staff brings deep expertise
           and hands-on experience both locally and internationally. We have proudly served clients
           including the Ghana Highway Authority, Newmont Ghana Gold, Anglogold Ashanti, the Ministry
           of Lands and Natural Resources, KNUST, and the Millennium Development Authority, among many others.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 mt-10 lg:mt-16 mb-16 lg:mb-32 w-full sm:w-auto">
-          <button className="bg-white text-[#0e3874] text-[1rem] lg:text-[1.4rem] px-10 lg:px-16 py-4 lg:py-5 hover:bg-[#ffc425] transition-colors">
+        <div className="flex flex-col sm:flex-row gap-3 mt-8 lg:mt-12 mb-12 lg:mb-24 w-full sm:w-auto">
+          <button className="bg-white text-[#0e3874] text-[0.8rem] lg:text-[1.12rem] px-8 lg:px-12 py-3 lg:py-4 hover:bg-[#ffc425] transition-colors">
             Explore
           </button>
-          <button className="border-[3px] border-white text-white text-[1rem] lg:text-[1.4rem] px-8 lg:px-14 py-4 lg:py-5 hover:bg-white hover:text-[#0e3874] transition-colors">
+          <button className="border-[2px] border-white text-white text-[0.8rem] lg:text-[1.12rem] px-6 lg:px-11 py-3 lg:py-4 hover:bg-white hover:text-[#0e3874] transition-colors">
             About us
           </button>
         </div>

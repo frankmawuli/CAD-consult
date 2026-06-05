@@ -26,13 +26,13 @@ export default function RootLayout({
       lang="en"
       suppressHydrationWarning
       className={cn(
-        "antialiased overflow-x-hidden",
+        "antialiased overflow-x-clip",
         fontMono.variable,
         "font-sans",
         poppins.variable
       )}
     >
-      <body className="min-h-screen bg-white max-w-[3000px] mx-auto overflow-x-hidden">
+      <body className="min-h-screen bg-white max-w-[3000px] mx-auto overflow-x-clip">
         <ThemeProvider>
           <Navbar />
           {children}

@@ -40,11 +40,11 @@ const chevronDown = (
 )
 
 const inputCls =
-  "w-full border-[1.5px] border-[#0e3874] rounded-xl px-4 py-4 text-[clamp(0.9rem,1vw,1.25rem)] placeholder:text-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30"
+  "w-full border-[1.5px] border-[#0e3874] rounded-[10px] px-3 py-3 text-[clamp(0.72rem,0.8vw,1rem)] placeholder:text-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30"
 const selectCls =
-  "w-full border-[1.5px] border-[#0e3874] rounded-xl px-4 py-4 text-[clamp(0.9rem,1vw,1.25rem)] text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30 appearance-none cursor-pointer"
+  "w-full border-[1.5px] border-[#0e3874] rounded-[10px] px-3 py-3 text-[clamp(0.72rem,0.8vw,1rem)] text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30 appearance-none cursor-pointer"
 const labelCls =
-  "block font-medium text-[#0e3874] text-[clamp(0.9rem,1.1vw,1.25rem)] mb-2"
+  "block font-medium text-[#0e3874] text-[clamp(0.72rem,0.88vw,1rem)] mb-1.5"
 
 export default function ProductRequest() {
   const [message, setMessage] = useState("")
@@ -61,38 +61,35 @@ export default function ProductRequest() {
   return (
     <main className="bg-[#f5f5f5]">
 
-      {/* ── Hero ── */}
-      
-
       {/* ── Product Request Form ── */}
-      <section className="px-[5%] py-16 lg:py-52 ">
-        <div className="max-w-[1486px] mx-auto bg-white rounded-[48px] px-[5%] py-14 lg:py-20 shadow-sm">
-          <h2 className="font-semibold text-black text-[clamp(1.75rem,3.5vw,3.25rem)] tracking-[-0.03em] text-center mb-12">
+      <section className="px-[5%] py-12 lg:py-40">
+        <div className="max-w-[1486px] mx-auto bg-white rounded-[38px] px-[5%] py-11 lg:py-16 shadow-sm">
+          <h2 className="font-semibold text-black text-[clamp(1.4rem,2.8vw,2.6rem)] tracking-[-0.03em] text-center mb-10">
             Product Request
           </h2>
 
           {submitted ? (
-            <div className="flex flex-col items-center gap-6 py-16">
-              <div className="w-20 h-20 rounded-full bg-[#0e3874]/10 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0e3874" className="w-10 h-10">
+            <div className="flex flex-col items-center gap-5 py-12">
+              <div className="w-16 h-16 rounded-full bg-[#0e3874]/10 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0e3874" className="w-8 h-8">
                   <path fillRule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd" />
                 </svg>
               </div>
-              <p className="text-[#0e3874] font-semibold text-[clamp(1.25rem,2vw,1.75rem)] text-center">
+              <p className="text-[#0e3874] font-semibold text-[clamp(1rem,1.6vw,1.4rem)] text-center">
                 Your request has been submitted!
               </p>
-              <p className="text-gray-500 text-[clamp(0.9rem,1.2vw,1.125rem)] text-center max-w-lg">
+              <p className="text-gray-500 text-[clamp(0.72rem,0.96vw,0.9rem)] text-center max-w-lg">
                 Thank you for reaching out. Our team will get back to you shortly.
               </p>
               <button
                 onClick={() => setSubmitted(false)}
-                className="mt-4 text-[#0e3874] underline underline-offset-4 text-[clamp(0.875rem,1vw,1rem)] hover:text-[#0b2d5e] transition-colors"
+                className="mt-3 text-[#0e3874] underline underline-offset-4 text-[clamp(0.7rem,0.8vw,0.8rem)] hover:text-[#0b2d5e] transition-colors"
               >
                 Submit another request
               </button>
             </div>
           ) : (
-            <form onSubmit={handleSubmit} className="space-y-8">
+            <form onSubmit={handleSubmit} className="space-y-6">
 
               {/* I would like to */}
               <div>
@@ -116,71 +113,49 @@ export default function ProductRequest() {
               </div>
 
               {/* First + Last Name */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className={labelCls}>
                     First Name<span className="text-[#ed1c24]">*</span>
                   </label>
-                  <input
-                    type="text"
-                    placeholder="eg. Joshua"
-                    required
-                    className={inputCls}
-                  />
+                  <input type="text" placeholder="eg. Joshua" required className={inputCls} />
                 </div>
                 <div>
                   <label className={labelCls}>
                     Last Name<span className="text-[#ed1c24]">*</span>
                   </label>
-                  <input
-                    type="text"
-                    placeholder="eg. Mensah"
-                    required
-                    className={inputCls}
-                  />
+                  <input type="text" placeholder="eg. Mensah" required className={inputCls} />
                 </div>
               </div>
 
               {/* Work Email + Phone */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className={labelCls}>
                     Work Email<span className="text-[#ed1c24]">*</span>
                   </label>
-                  <input
-                    type="email"
-                    placeholder="you@company.com"
-                    required
-                    className={inputCls}
-                  />
+                  <input type="email" placeholder="you@company.com" required className={inputCls} />
                 </div>
                 <div>
                   <label className={labelCls}>
                     Phone Number<span className="text-[#ed1c24]">*</span>
                   </label>
-                  <input
-                    type="tel"
-                    placeholder="+233 59 511 5011"
-                    required
-                    className={inputCls}
-                  />
-                  <p className="text-[#0e3874] text-[clamp(0.75rem,0.9vw,1.0625rem)] mt-2">
+                  <input type="tel" placeholder="+233 59 511 5011" required className={inputCls} />
+                  <p className="text-[#0e3874] text-[clamp(0.6rem,0.72vw,0.85rem)] mt-1.5">
                     Please include country code.
                   </p>
                 </div>
               </div>
 
               {/* Country + Accessories */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
                   <label className={labelCls}>
                     Country<span className="text-[#ed1c24]">*</span>
                   </label>
                   <div className="relative">
                     <select className={selectCls} defaultValue="Ghana" required>
-                      {COUNTRIES.map((c) => (
-                        <option key={c}>{c}</option>
-                      ))}
+                      {COUNTRIES.map((c) => <option key={c}>{c}</option>)}
                     </select>
                     <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#0e3874]">
                       {chevronDown}
@@ -188,15 +163,11 @@ export default function ProductRequest() {
                   </div>
                 </div>
                 <div>
-                  <label className={labelCls}>
-                    Accessories (Optional)
-                  </label>
+                  <label className={labelCls}>Accessories (Optional)</label>
                   <div className="relative">
                     <select className={selectCls} defaultValue="">
                       <option value="" />
-                      {ACCESSORIES.map((a) => (
-                        <option key={a}>{a}</option>
-                      ))}
+                      {ACCESSORIES.map((a) => <option key={a}>{a}</option>)}
                     </select>
                     <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#0e3874]">
                       {chevronDown}
@@ -207,9 +178,7 @@ export default function ProductRequest() {
 
               {/* Message */}
               <div>
-                <label className={labelCls}>
-                  Your Message (Optional)
-                </label>
+                <label className={labelCls}>Your Message (Optional)</label>
                 <textarea
                   rows={6}
                   placeholder="Tell us about your project, team size, timeline or any specific questions you have. The more detail you share, the better we can help."
@@ -217,7 +186,7 @@ export default function ProductRequest() {
                   onChange={(e) => setMessage(e.target.value)}
                   className={`${inputCls} resize-none ${overLimit ? "border-[#ed1c24] focus:ring-[#ed1c24]/30" : ""}`}
                 />
-                <p className={`text-[clamp(0.75rem,0.9vw,1.125rem)] mt-2 font-medium ${overLimit ? "text-[#ed1c24]" : "text-[#0e3874]"}`}>
+                <p className={`text-[clamp(0.6rem,0.72vw,0.9rem)] mt-1.5 font-medium ${overLimit ? "text-[#ed1c24]" : "text-[#0e3874]"}`}>
                   {words} / {MAX_WORDS} words{overLimit ? " — please shorten your message" : ""}
                 </p>
               </div>
@@ -227,7 +196,7 @@ export default function ProductRequest() {
                 <button
                   type="submit"
                   disabled={overLimit}
-                  className="bg-[#0e3874] text-white font-medium text-[clamp(1rem,1.4vw,1.625rem)] px-12 py-5 rounded-xl hover:bg-[#0b2d5e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                  className="bg-[#0e3874] text-white font-medium text-[clamp(0.8rem,1.12vw,1.3rem)] px-10 py-4 rounded-[10px] hover:bg-[#0b2d5e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   Submit message
                 </button>
@@ -238,15 +207,15 @@ export default function ProductRequest() {
       </section>
 
       {/* ── Head Office + QR Code ── */}
-      <section className="px-[5%] pb-16 lg:pb-52">
-        <div className="max-w-[1486px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <section className="px-[5%] pb-12 lg:pb-40">
+        <div className="max-w-[1486px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
 
           {/* Office details */}
           <div>
-            <h2 className="text-[#0e3874] font-semibold text-[clamp(1.5rem,2.5vw,2.3125rem)] mb-6">
+            <h2 className="text-[#0e3874] font-semibold text-[clamp(1.2rem,2vw,1.85rem)] mb-5">
               Head Office Location
             </h2>
-            <div className="space-y-3 text-black text-[clamp(0.95rem,1.3vw,1.625rem)] leading-relaxed">
+            <div className="space-y-2 text-black text-[clamp(0.76rem,1.04vw,1.3rem)] leading-relaxed">
               <p>Tetteh Okuley Avenue Abofu Off Achimota School Road</p>
               <p>
                 <span className="font-medium">Post Office Address:</span>
@@ -264,16 +233,16 @@ export default function ProductRequest() {
           </div>
 
           {/* QR Code */}
-          <div className="flex flex-col items-center lg:items-end gap-4">
-            <div className="bg-[#0e3874] rounded-[32px] p-8 flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center lg:items-end gap-3">
+            <div className="bg-[#0e3874] rounded-[26px] p-6 flex flex-col items-center gap-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/contact/qr-code.svg"
                 alt="QR code – Join us online"
-                className="w-[200px] h-[200px] lg:w-[280px] lg:h-[280px]"
+                className="w-[160px] h-[160px] lg:w-[224px] lg:h-[224px]"
               />
             </div>
-            <p className="font-semibold text-[#0e3874] text-[clamp(1rem,1.5vw,1.6875rem)]">
+            <p className="font-semibold text-[#0e3874] text-[clamp(0.8rem,1.2vw,1.35rem)]">
               Join Us Online
             </p>
           </div>

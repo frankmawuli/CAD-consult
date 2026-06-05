@@ -3,7 +3,7 @@ import Image from "next/image"
 export default function TrainingPage() {
   return (
     <main>
-      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-5 sm:px-8 mb-40">
+      <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 mb-32">
         <Image
           src="/images/training.png"
           alt=""
@@ -11,22 +11,22 @@ export default function TrainingPage() {
           className="object-cover"
           priority
         />
-        <div className="absolute inset-0 bg-black/[0.59]" />
+        <div className="absolute inset-0 bg-black/59" />
 
-        <div className="relative z-10 flex flex-col items-center w-full pt-[80px] lg:pt-[100px] pb-16 lg:pb-24">
-          <h1 className="text-white font-semibold text-[clamp(3rem,10vw,10.3rem)] leading-[1.1] tracking-[-0.04em] whitespace-nowrap">
+        <div className="relative z-10 flex flex-col items-center w-full pt-16 lg:pt-20 pb-12 lg:pb-20">
+          <h1 className="text-white font-semibold text-[clamp(2.4rem,8vw,8.24rem)] leading-[1.1] tracking-[-0.04em] whitespace-nowrap">
             COMING SOON
           </h1>
 
-          <p className="text-white text-[clamp(0.875rem,1.15vw,1.25rem)] max-w-6xl leading-relaxed ">
+          <p className="text-white text-[clamp(0.7rem,0.92vw,1rem)] max-w-6xl leading-relaxed">
             Our team of professional engineers, technicians, and support staff brings deep expertise
             and hands-on experience both locally and internationally. We have proudly served clients
             including the Ghana Highway Authority, Newmont Ghana Gold, Anglogold Ashanti, the Ministry
             of Lands and Natural Resources, KNUST, and the Millennium Development Authority, among many others.
           </p>
 
-          <div className="mt-5 lg:mt-10 border-[3px] border-white px-10 lg:px-16 py-4 lg:py-5 text-white hover:bg-white hover:text-[#0e3874] transition-colors">
-            <span className="text-[clamp(1rem,1.8vw,1.9375rem)] font-normal">
+          <div className="mt-4 lg:mt-8 border-[2px] border-white px-8 lg:px-12 py-3 lg:py-4 text-white hover:bg-white hover:text-[#0e3874] transition-colors">
+            <span className="text-[clamp(0.8rem,1.44vw,1.55rem)] font-normal">
               CAD Consult Training Centre
             </span>
           </div>
@@ -35,4 +35,3 @@ export default function TrainingPage() {
     </main>
   )
 }
-

@@ -28,7 +28,7 @@ function NavButton({
     <button
       onClick={onClick}
       className={`absolute top-1/2 -translate-y-1/2
-      w-10 h-10 sm:w-14 sm:h-14 rounded-full bg-[#0E3874]
+      w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-[#0E3874]
       flex items-center justify-center shadow-lg transition-all
       ${
         flipped
@@ -37,8 +37,8 @@ function NavButton({
       }`}
     >
       <svg
-        width="18"
-        height="18"
+        width="14"
+        height="14"
         viewBox="0 0 24 24"
         fill="none"
         className={flipped ? "rotate-180" : ""}
@@ -57,15 +57,15 @@ function NavButton({
 
 export function ProjectsSection() {
   const [active, setActive] = useState(1)
-  const [offset, setOffset] = useState(360)
+  const [offset, setOffset] = useState(288)
 
   useEffect(() => {
     const update = () => {
       const w = window.innerWidth
-      if (w < 640) setOffset(200)
-      else if (w < 768) setOffset(240)
-      else if (w < 1024) setOffset(300)
-      else setOffset(360)
+      if (w < 640) setOffset(160)
+      else if (w < 768) setOffset(192)
+      else if (w < 1024) setOffset(240)
+      else setOffset(288)
     }
     update()
     window.addEventListener("resize", update)
@@ -85,12 +85,12 @@ export function ProjectsSection() {
   }
 
   return (
-    <section className="py-16 lg:py-24 bg-white overflow-hidden ">
-      <h2 className="font-semibold text-black text-[clamp(1.75rem,2.5vw,2.8rem)] tracking-[-0.04em] text-center mb-10 lg:mb-32 px-5">
+    <section className="py-12 lg:py-20 bg-white overflow-hidden">
+      <h2 className="font-semibold text-black text-[clamp(1.4rem,2vw,2.24rem)] tracking-[-0.04em] text-center mb-8 lg:mb-[6.4rem] px-4">
         Projects We&apos;ve Delivered
       </h2>
 
-      <div className="relative max-w-[90rem] mx-auto h-[280px] sm:h-90 md:h-105 lg:h-120 flex items-center justify-center">
+      <div className="relative max-w-[90rem] mx-auto h-[224px] sm:h-72 md:h-[21rem] lg:h-96 flex items-center justify-center">
 
         <NavButton onClick={prev} />
         <NavButton onClick={next} flipped />
@@ -119,8 +119,8 @@ export function ProjectsSection() {
                 className={`overflow-hidden bg-white shadow-xl transition-all duration-500
                   ${
                     isCenter
-                      ? "w-[280px] h-[200px] sm:w-100 sm:h-67.5 md:w-125 md:h-85 lg:w-160 lg:h-140"
-                      : "w-[240px] h-[170px] sm:w-85 sm:h-57.5 md:w-110 md:h-72.5 lg:w-180 lg:h-96"
+                      ? "w-[224px] h-[160px] sm:w-80 sm:h-54 md:w-100 md:h-[17rem] lg:w-[32rem] lg:h-[28rem]"
+                      : "w-[192px] h-[136px] sm:w-[17rem] sm:h-[11.5rem] md:w-[22rem] md:h-[14.5rem] lg:w-[36rem] lg:h-[19.2rem]"
                   }
                 `}
               >

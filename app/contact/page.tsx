@@ -5,7 +5,7 @@ export default function ContactPage() {
     <main className="bg-[#f5f5f5]">
 
       {/* ── Hero ── */}
-      <section className="relative min-h-[60vh] flex flex-col items-center justify-center text-center px-5">
+      <section className="relative min-h-[60vh] flex flex-col items-center justify-center text-center px-4">
         <Image
           src="/images/engineering-bg.jpg"
           alt=""
@@ -13,12 +13,12 @@ export default function ContactPage() {
           className="object-cover object-center"
           priority
         />
-        <div className="absolute inset-0 bg-black/[0.67]" />
-        <div className="relative z-10 flex flex-col items-center pt-[80px] pb-16">
-          <h1 className="text-white font-semibold text-[clamp(3rem,10vw,10.3rem)] leading-[1.1] tracking-[-0.04em] whitespace-nowrap">
+        <div className="absolute inset-0 bg-black/67" />
+        <div className="relative z-10 flex flex-col items-center pt-16 pb-12">
+          <h1 className="text-white font-semibold text-[clamp(2.4rem,8vw,8.24rem)] leading-[1.1] tracking-[-0.04em] whitespace-nowrap">
             CONTACT US
           </h1>
-          <p className="text-white text-[clamp(0.875rem,1.15vw,1.25rem)] max-w-4xl mt-6 leading-relaxed">
+          <p className="text-white text-[clamp(0.7rem,0.92vw,1rem)] max-w-4xl mt-5 leading-relaxed">
             Our team of professional engineers, technicians, and support staff brings deep expertise
             and hands-on experience both locally and internationally. We have proudly served clients
             including the Ghana Highway Authority, Newmont Ghana Gold, Anglogold Ashanti, the Ministry
@@ -28,20 +28,20 @@ export default function ContactPage() {
       </section>
 
       {/* ── Contact Form ── */}
-      <section className="px-[5%] py-16 lg:py-24">
-        <div className="max-w-[1486px] mx-auto bg-white rounded-[48px] px-[5%] py-14 lg:py-20 shadow-sm">
-          <h2 className="font-semibold text-black text-[clamp(1.75rem,3.5vw,3.25rem)] tracking-[-0.03em] text-center mb-12">
+      <section className="px-[5%] py-12 lg:py-20">
+        <div className="max-w-[1486px] mx-auto bg-white rounded-[38px] px-[5%] py-11 lg:py-16 shadow-sm">
+          <h2 className="font-semibold text-black text-[clamp(1.4rem,2.8vw,2.6rem)] tracking-[-0.03em] text-center mb-10">
             Get In Touch With Us
           </h2>
 
-          <form className="space-y-8">
+          <form className="space-y-6">
             {/* I would like to */}
             <div>
-              <label className="block font-medium text-[#0e3874] text-[clamp(0.9rem,1.1vw,1.25rem)] mb-2">
+              <label className="block font-medium text-[#0e3874] text-[clamp(0.72rem,0.88vw,1rem)] mb-1.5">
                 I would like to:<span className="text-[#ed1c24]">*</span>
               </label>
               <select
-                className="w-full border-[1.5px] border-[#0e3874] rounded-xl px-4 py-4 text-[clamp(0.9rem,1vw,1.25rem)] text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30 appearance-none cursor-pointer"
+                className="w-full border-[1.5px] border-[#0e3874] rounded-[10px] px-3 py-3 text-[clamp(0.72rem,0.8vw,1rem)] text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30 appearance-none cursor-pointer"
                 defaultValue=""
               >
                 <option value="" disabled>Select an option</option>
@@ -55,51 +55,51 @@ export default function ContactPage() {
             </div>
 
             {/* First + Last Name */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label className="block font-medium text-[#0e3874] text-[clamp(0.9rem,1.1vw,1.25rem)] mb-2">
+                <label className="block font-medium text-[#0e3874] text-[clamp(0.72rem,0.88vw,1rem)] mb-1.5">
                   Full Name<span className="text-[#ed1c24]">*</span>
                 </label>
                 <input
                   type="text"
                   placeholder="eg. Joshua"
-                  className="w-full border-[1.5px] border-[#0e3874] rounded-xl px-4 py-4 text-[clamp(0.9rem,1vw,1.25rem)] placeholder:text-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30"
+                  className="w-full border-[1.5px] border-[#0e3874] rounded-[10px] px-3 py-3 text-[clamp(0.72rem,0.8vw,1rem)] placeholder:text-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30"
                 />
               </div>
               <div>
-                <label className="block font-medium text-[#0e3874] text-[clamp(0.9rem,1.1vw,1.25rem)] mb-2">
+                <label className="block font-medium text-[#0e3874] text-[clamp(0.72rem,0.88vw,1rem)] mb-1.5">
                   Last Name<span className="text-[#ed1c24]">*</span>
                 </label>
                 <input
                   type="text"
                   placeholder="eg. Mensah"
-                  className="w-full border-[1.5px] border-[#0e3874] rounded-xl px-4 py-4 text-[clamp(0.9rem,1vw,1.25rem)] placeholder:text-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30"
+                  className="w-full border-[1.5px] border-[#0e3874] rounded-[10px] px-3 py-3 text-[clamp(0.72rem,0.8vw,1rem)] placeholder:text-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30"
                 />
               </div>
             </div>
 
             {/* Work Email + Phone */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div>
-                <label className="block font-medium text-[#0e3874] text-[clamp(0.9rem,1.1vw,1.25rem)] mb-2">
+                <label className="block font-medium text-[#0e3874] text-[clamp(0.72rem,0.88vw,1rem)] mb-1.5">
                   Work Email<span className="text-[#ed1c24]">*</span>
                 </label>
                 <input
                   type="email"
                   placeholder="you@company.com"
-                  className="w-full border-[1.5px] border-[#0e3874] rounded-xl px-4 py-4 text-[clamp(0.9rem,1vw,1.25rem)] placeholder:text-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30"
+                  className="w-full border-[1.5px] border-[#0e3874] rounded-[10px] px-3 py-3 text-[clamp(0.72rem,0.8vw,1rem)] placeholder:text-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30"
                 />
               </div>
               <div>
-                <label className="block font-medium text-[#0e3874] text-[clamp(0.9rem,1.1vw,1.25rem)] mb-2">
+                <label className="block font-medium text-[#0e3874] text-[clamp(0.72rem,0.88vw,1rem)] mb-1.5">
                   Phone Number<span className="text-[#ed1c24]">*</span>
                 </label>
                 <input
                   type="tel"
                   placeholder="+233 59 511 5011"
-                  className="w-full border-[1.5px] border-[#0e3874] rounded-xl px-4 py-4 text-[clamp(0.9rem,1vw,1.25rem)] placeholder:text-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30"
+                  className="w-full border-[1.5px] border-[#0e3874] rounded-[10px] px-3 py-3 text-[clamp(0.72rem,0.8vw,1rem)] placeholder:text-[#9f9f9f] focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30"
                 />
-                <p className="text-[#0e3874] text-[clamp(0.75rem,0.9vw,1.0625rem)] mt-2">
+                <p className="text-[#0e3874] text-[clamp(0.6rem,0.72vw,0.85rem)] mt-1.5">
                   Please include country code.
                 </p>
               </div>
@@ -107,12 +107,12 @@ export default function ContactPage() {
 
             {/* Country */}
             <div>
-              <label className="block font-medium text-[#0e3874] text-[clamp(0.9rem,1.1vw,1.25rem)] mb-2">
+              <label className="block font-medium text-[#0e3874] text-[clamp(0.72rem,0.88vw,1rem)] mb-1.5">
                 Country<span className="text-[#ed1c24]">*</span>
               </label>
               <div className="relative">
                 <select
-                  className="w-full border-[1.5px] border-[#0e3874] rounded-xl px-4 py-4 text-[clamp(0.9rem,1vw,1.25rem)] text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30 appearance-none cursor-pointer"
+                  className="w-full border-[1.5px] border-[#0e3874] rounded-[10px] px-3 py-3 text-[clamp(0.72rem,0.8vw,1rem)] text-gray-800 bg-white focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30 appearance-none cursor-pointer"
                   defaultValue="Ghana"
                 >
                   <option>Ghana</option>
@@ -133,15 +133,15 @@ export default function ContactPage() {
 
             {/* Message */}
             <div>
-              <label className="block font-medium text-[#0e3874] text-[clamp(0.9rem,1.1vw,1.25rem)] mb-2">
+              <label className="block font-medium text-[#0e3874] text-[clamp(0.72rem,0.88vw,1rem)] mb-1.5">
                 Your Message<span className="text-[#ed1c24]">*</span>
               </label>
               <textarea
                 rows={6}
                 placeholder="Tell us about your project, team size, timeline or any specific questions you have. The more detail you share, the better we can help."
-                className="w-full border-[1.5px] border-[#0e3874] rounded-xl px-4 py-4 text-[clamp(0.9rem,1vw,1.25rem)] placeholder:text-[#9f9f9f] resize-none focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30"
+                className="w-full border-[1.5px] border-[#0e3874] rounded-[10px] px-3 py-3 text-[clamp(0.72rem,0.8vw,1rem)] placeholder:text-[#9f9f9f] resize-none focus:outline-none focus:ring-2 focus:ring-[#0e3874]/30"
               />
-              <p className="text-[#0e3874] font-medium text-[clamp(0.75rem,0.9vw,1.125rem)] mt-2">
+              <p className="text-[#0e3874] font-medium text-[clamp(0.6rem,0.72vw,0.9rem)] mt-1.5">
                 150 Maximum Words
               </p>
             </div>
@@ -150,7 +150,7 @@ export default function ContactPage() {
             <div className="flex justify-end">
               <button
                 type="submit"
-                className="bg-[#0e3874] text-white font-medium text-[clamp(1rem,1.4vw,1.625rem)] px-12 py-5 rounded-xl hover:bg-[#0b2d5e] transition-colors"
+                className="bg-[#0e3874] text-white font-medium text-[clamp(0.8rem,1.12vw,1.3rem)] px-10 py-4 rounded-[10px] hover:bg-[#0b2d5e] transition-colors"
               >
                 Submit message
               </button>
@@ -160,15 +160,15 @@ export default function ContactPage() {
       </section>
 
       {/* ── Head Office + QR Code ── */}
-      <section className="px-[5%] pb-16 lg:pb-24">
-        <div className="max-w-[1486px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+      <section className="px-[5%] pb-12 lg:pb-20">
+        <div className="max-w-[1486px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
 
           {/* Office details */}
           <div>
-            <h2 className="text-[#0e3874] font-semibold text-[clamp(1.5rem,2.5vw,2.3125rem)] mb-6">
+            <h2 className="text-[#0e3874] font-semibold text-[clamp(1.2rem,2vw,1.85rem)] mb-5">
               Head Office Location
             </h2>
-            <div className="space-y-3 text-black text-[clamp(0.95rem,1.3vw,1.625rem)] leading-relaxed">
+            <div className="space-y-2 text-black text-[clamp(0.76rem,1.04vw,1.3rem)] leading-relaxed">
               <p>Tetteh Okuley Avenue Abofu Off Achimota School Road</p>
               <p>
                 <span className="font-medium">Post Office Address:</span>
@@ -186,16 +186,16 @@ export default function ContactPage() {
           </div>
 
           {/* QR Code */}
-          <div className="flex flex-col items-center lg:items-end gap-4">
-            <div className="bg-[#0e3874] rounded-[32px] p-8 flex flex-col items-center gap-4">
+          <div className="flex flex-col items-center lg:items-end gap-3">
+            <div className="bg-[#0e3874] rounded-[26px] p-6 flex flex-col items-center gap-3">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img
                 src="/images/contact/qr-code.svg"
                 alt="QR code – Join us online"
-                className="w-[200px] h-[200px] lg:w-[280px] lg:h-[280px]"
+                className="w-[160px] h-[160px] lg:w-[224px] lg:h-[224px]"
               />
             </div>
-            <p className="font-semibold text-[#0e3874] text-[clamp(1rem,1.5vw,1.6875rem)]">
+            <p className="font-semibold text-[#0e3874] text-[clamp(0.8rem,1.2vw,1.35rem)]">
               Join Us Online
             </p>
           </div>

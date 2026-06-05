@@ -2,7 +2,7 @@ import Image from "next/image"
 
 export function AboutHero() {
   return (
-    <section className="relative min-h-[75vh] flex flex-col items-center justify-center text-center px-5">
+    <section className="relative min-h-[75vh] flex flex-col items-center justify-center text-center px-4">
       <Image
         src="/images/about/about-hero-bg.jpg"
         alt=""
@@ -10,13 +10,13 @@ export function AboutHero() {
         className="object-cover object-center"
         priority
       />
-      <div className="absolute inset-0 bg-black/[0.67]" />
+      <div className="absolute inset-0 bg-black/67" />
 
-      <div className="relative z-10 flex flex-col items-center pt-[80px] lg:pt-[100px] pb-16">
-        <h1 className="text-white font-semibold text-[clamp(3rem,10vw,10.3rem)] leading-[1.1] tracking-[-0.04em]">
+      <div className="relative z-10 flex flex-col items-center pt-16 lg:pt-20 pb-12">
+        <h1 className="text-white font-semibold text-[clamp(2.4rem,8vw,8.24rem)] leading-[1.1] tracking-[-0.04em]">
           About Us
         </h1>
-        <p className="text-white text-[clamp(0.875rem,1.15vw,1.25rem)] max-w-5xl mt-4 lg:mt-2 leading-relaxed xl:max-w-6xl">
+        <p className="text-white text-[clamp(0.7rem,0.92vw,1rem)] max-w-5xl mt-3 lg:mt-1.5 leading-relaxed xl:max-w-6xl">
           Our team of professional engineers, technicians, and support staff brings deep expertise
           and hands-on experience both locally and internationally. We have proudly served clients
           including the Ghana Highway Authority, Newmont Ghana Gold, Anglogold Ashanti, the Ministry

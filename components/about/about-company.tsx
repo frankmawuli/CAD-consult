@@ -2,14 +2,14 @@ import Image from "next/image"
 
 export function AboutCompany() {
   return (
-    <section className="bg-[#f1f1f1] px-[5%] py-16 lg:py-52">
-      <div className="max-w-[1728px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+    <section className="bg-[#f1f1f1] px-[5%] py-12 lg:py-40">
+      <div className="max-w-[1728px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
         {/* Text */}
         <div>
-          <h2 className="text-[#0e3874] font-semibold text-[clamp(1.5rem,2.5vw,2.4375rem)] mb-6">
+          <h2 className="text-[#0e3874] font-semibold text-[clamp(1.2rem,2vw,1.95rem)] mb-5">
             CAD Consult Ghana
           </h2>
-          <div className="space-y-5 text-black text-[clamp(0.95rem,1.15vw,1.3125rem)] leading-[1.47] text-justify">
+          <div className="space-y-4 text-black text-[clamp(0.76rem,0.92vw,1.05rem)] leading-[1.47] text-justify">
             <p>
               CAD Consult GH is a wholly Ghanaian-owned engineering and surveying company
               incorporated in March 2001, with offices located at the Tycan Office Complex,
@@ -37,7 +37,7 @@ export function AboutCompany() {
         </div>
 
         {/* Image placeholder */}
-        <div className="bg-[#d9d9d9] rounded-sm flex items-center justify-center aspect-[4/3] w-full ">
+        <div className="bg-[#d9d9d9] rounded-sm flex items-center justify-center aspect-[4/3] w-full">
           <Image
             src="/images/about-placeholder.png"
             alt="CAD Consult office"
