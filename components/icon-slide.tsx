@@ -37,7 +37,7 @@ export default function IconSlider() {
             {[...logos, ...logos].map((logo, i) => (
               <div
                 key={i}
-                className="shrink-0 w-[20vw] flex items-center justify-center h-20 px-8 transition-all duration-300"
+                className="shrink-0 w-[18vw] flex items-center justify-center h-20 px-8 transition-all duration-300"
               >
                 <Image
                   src={logo.src}
@@ -45,7 +45,7 @@ export default function IconSlider() {
                   width={120}
                   height={48}
                   unoptimized
-                  className="object-contain w-full h-10"
+                  className="object-contain w-52 h-10"
                 />
               </div>
             ))}
