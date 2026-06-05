@@ -126,7 +126,7 @@ export default function ServicesPage() {
           </aside>
 
           {/* Product Grid */}
-          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6">
+          <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-6 ">
             {products.map((product, i) => (
               <ProductCard key={i} product={product} />
             ))}
