@@ -14,7 +14,7 @@ const logos: Logo[] = [
   { src: "/images/logos/Autodesk Logo.svg", alt: "Autodesk" },
   { src: "/images/logos/Delaair Logo.svg", alt: "Delair" },
   { src: "/images/logos/Seco Logo.svg", alt: "Seco" },
-  { src: "/images/logos/CHCNAV.svg", alt: "CHC Navigation" },
+  { src: "/images/logos/chcnav.svg", alt: "CHC Navigation" },
 ]
 
 export default function IconSlider() {
@@ -33,11 +33,11 @@ export default function IconSlider() {
         <div className="absolute right-0 top-0 h-full w-24 bg-linear-to-l from-white to-transparent z-10 pointer-events-none" />
 
         <div className="flex overflow-hidden">
-          <div className="flex animate-marquee items-center">
+          <div className="flex min-w-max animate-marquee items-center">
             {[...logos, ...logos].map((logo, i) => (
               <div
                 key={i}
-                className="shrink-0 w-[18vw] flex items-center justify-center h-20 px-8 transition-all duration-300"
+                className="shrink-0 w-[38vw] sm:w-[22vw] lg:w-[18vw] flex items-center justify-center h-20 px-4 sm:px-6 lg:px-8 transition-all duration-300"
               >
                 <Image
                   src={logo.src}
@@ -45,7 +45,7 @@ export default function IconSlider() {
                   width={120}
                   height={48}
                   unoptimized
-                  className="object-contain w-52 h-10"
+                  className="object-contain w-full h-10"
                 />
               </div>
             ))}
