@@ -27,13 +27,13 @@ function NavButton({
   return (
     <button
       onClick={onClick}
-      className={`absolute top-1/2 -translate-y-1/2
+      className={`absolute top-1/2 -translate-y-1/2 z-40
       w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-[#0E3874]
       flex items-center justify-center shadow-lg transition-all
       ${
         flipped
-          ? "right-[-2rem] sm:right-[-3rem] lg:right-[-2rem]"
-          : "left-[-2rem] sm:left-[-3rem] lg:left-[-2rem]"
+          ? "left-[calc(50%+7.5rem)] sm:left-[calc(50%+10.5rem)] md:left-[calc(50%+13rem)] lg:left-[calc(50%+16.5rem)]"
+          : "left-[calc(50%-9.5rem)] sm:left-[calc(50%-13.25rem)] md:left-[calc(50%-15.75rem)] lg:left-[calc(50%-19.25rem)]"
       }`}
     >
       <svg
