@@ -50,10 +50,10 @@ export default async function ProductDetailPage({
   return (
     <main className="bg-[#f1f1f1]">
       {/* ── Detail Panel ── */}
-      <section className="bg-[#f1f1f1] px-[5%] py-12">
-        <div className="mx-auto max-w-7xl flex items-center gap-12 py-24">
+      <section className="bg-[#f1f1f1] px-[5%] py-8 md:py-12">
+        <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center gap-8 md:gap-12 py-8 md:py-24">
           {/* Product Image */}
-          <div className="w-[45%] shrink-0 flex items-center justify-center border border-gray-200 bg-white p-6 aspect-square">
+          <div className="w-full md:w-[45%] shrink-0 flex items-center justify-center border border-gray-200 bg-white p-6 aspect-square">
             <Image
               src={product.image}
               alt={product.fullName}
@@ -65,8 +65,8 @@ export default async function ProductDetailPage({
           </div>
 
           {/* Product Info */}
-          <div className="flex-1 flex flex-col">
-            <h1 className="mb-6 max-w-3xl text-[clamp(1.2rem,1.6vw,1.6rem)] leading-tight font-bold text-black">
+          <div className="flex-1 flex flex-col w-full">
+            <h1 className="mb-4 md:mb-6 max-w-3xl text-[clamp(1.2rem,2.5vw,1.6rem)] leading-tight font-bold text-black">
               {product.fullName}
             </h1>
 
@@ -75,7 +75,7 @@ export default async function ProductDetailPage({
             </h2>
 
             {/* Spec Grid */}
-            <div className="grid gap-x-12 gap-y-6 md:grid-cols-2">
+            <div className="grid gap-x-8 gap-y-4 md:gap-x-12 md:gap-y-6 md:grid-cols-2">
               {product.specs?.map((group) => (
                 <div key={group.group}>
                   <h3 className="mb-2.5 font-semibold text-[#0e3874]">
@@ -113,7 +113,7 @@ export default async function ProductDetailPage({
       </section>
 
       {/* ── More Products ── */}
-      <section className="px-[5%] py-12 lg:px-24">
+      <section className="px-[5%] py-12 lg:px-24 2xl:px-[15%]">
         <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 xl:grid-cols-4">
           {otherProducts.map((p, i) => (
             <ProductCard key={i} product={p} />

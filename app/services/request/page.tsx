@@ -206,48 +206,7 @@ export default function ProductRequest() {
         </div>
       </section>
 
-      {/* ── Head Office + QR Code ── */}
-      <section className="px-[5%] pb-12 lg:pb-40">
-        <div className="max-w-[1486px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-12 items-start">
-
-          {/* Office details */}
-          <div>
-            <h2 className="text-[#0e3874] font-semibold text-[clamp(1.2rem,2vw,1.85rem)] mb-5">
-              Head Office Location
-            </h2>
-            <div className="space-y-2 text-black text-[clamp(0.76rem,1.04vw,1.3rem)] leading-relaxed">
-              <p>Tetteh Okuley Avenue Abofu Off Achimota School Road</p>
-              <p>
-                <span className="font-medium">Post Office Address:</span>
-                {"  "}P.O Box LG 723
-              </p>
-              <p>
-                <span className="font-medium">Telephone No.:</span>
-                {" "}(233-27) 7603276 / (233-0303) 934116
-              </p>
-              <p>
-                <span className="font-medium">Fax No.:</span>
-                {" "}(233-0302) 407459
-              </p>
-            </div>
-          </div>
-
-          {/* QR Code */}
-          <div className="flex flex-col items-center lg:items-end gap-3">
-            <div className="bg-[#0e3874] rounded-[26px] p-6 flex flex-col items-center gap-3">
-              {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img
-                src="/images/contact/qr-code.svg"
-                alt="QR code – Join us online"
-                className="w-[160px] h-[160px] lg:w-[224px] lg:h-[224px]"
-              />
-            </div>
-            <p className="font-semibold text-[#0e3874] text-[clamp(0.8rem,1.2vw,1.35rem)]">
-              Join Us Online
-            </p>
-          </div>
-        </div>
-      </section>
+  
 
     </main>
   )

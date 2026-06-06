@@ -18,7 +18,7 @@ export default function TrainingPage() {
             COMING SOON
           </h1>
 
-          <p className="text-white text-[clamp(0.7rem,0.92vw,1rem)] max-w-6xl leading-relaxed">
+          <p className="text-white text-[clamp(0.7rem,0.92vw,1.25rem)] max-w-4xl mt-5 leading-relaxed mx-auto 2xl:max-w-6xl">
             Our team of professional engineers, technicians, and support staff brings deep expertise
             and hands-on experience both locally and internationally. We have proudly served clients
             including the Ghana Highway Authority, Newmont Ghana Gold, Anglogold Ashanti, the Ministry
