@@ -13,7 +13,7 @@ export default function ServicesHero() {
       <div className="absolute inset-0 bg-black/67" />
       <div className="relative z-10 pt-16 pb-12">
         <h1 className="text-white font-semibold text-[clamp(2.4rem,8vw,8.24rem)] leading-[1.1] tracking-[-0.04em]">
-          SALES
+          SALES AND SERVICES
         </h1>
         <p className="text-white text-[clamp(0.7rem,0.92vw,1.25rem)] max-w-4xl mt-5 leading-relaxed mx-auto 2xl:max-w-6xl">
           Our team of professional engineers, technicians, and support staff brings deep expertise

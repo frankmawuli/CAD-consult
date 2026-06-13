@@ -20,7 +20,7 @@ function ProductCard({ product }: { product: Product }) {
       </p>
       <div className="mt-auto flex w-full justify-center gap-2.5">
         <Link
-          href={`/services/${product.slug}`}
+          href={`/sales-and-support/${product.slug}`}
           className="rounded-[9px] border border-[#0e3874] px-3 py-2 text-[0.6875rem] font-medium whitespace-nowrap text-[#0e3874] transition-colors hover:bg-[#0e3874] hover:text-white"
         >
           Product Details
@@ -101,7 +101,7 @@ export default async function ProductDetailPage({
 
               <div className="flex items-end">
                 <Link
-                  href="/services/request"
+                  href="/sales-and-support/request"
                   className="rounded-md bg-[#ffc425] px-8 py-2.5 font-semibold text-black transition hover:bg-[#e8b321]"
                 >
                   Request Item

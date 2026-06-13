@@ -53,23 +53,23 @@ export function Footer() {
   return (
     <footer className="bg-[#0e3874] text-white w-10xl">
       {/* Main grid */}
-      <div className="mx-auto w-full grid grid-cols-1 gap-8 px-[5%] pt-11 pb-8 md:grid-cols-2 lg:grid-cols-13 lg:gap-6 lg:pt-12">
+      <div className="mx-auto w-full grid grid-cols-1 gap-6 px-[5%] pt-9 pb-6 md:grid-cols-2 lg:grid-cols-13 lg:gap-5 lg:pt-10">
 
         {/* Brand */}
         <div className="lg:col-span-5">
-          <div className="mb-4 flex items-center gap-2">
+          <div className="mb-3 flex items-center gap-1.5">
             <Image
               src="/images/footer-logo.svg"
               alt="CAD Consult Gh logo"
-              width={48}
-              height={48}
-              className="h-9 w-11.5"
+              width={38}
+              height={38}
+              className="h-7 w-9"
             />
-            <span className="text-[1.35rem] font-semibold leading-tight">
+            <span className="text-[1.1rem] font-semibold leading-tight">
               CAD Consult Gh
             </span>
           </div>
-          <p className="text-justify text-[0.76rem] leading-relaxed text-white/90 max-w-[600px]">
+          <p className="text-justify text-[0.68rem] leading-relaxed text-white/90 max-w-[600px]">
             CAD Consult GH is a wholly Ghanaian-owned engineering and surveying
             company incorporated in March 2001, with offices located at the
             Tycan Office Complex, off Achimota School Road, Accra. For over two
@@ -81,8 +81,8 @@ export function Footer() {
 
         {/* Links */}
         <div className="lg:col-span-2">
-          <h3 className="mb-5 text-[1.5rem] font-semibold">Links</h3>
-          <ul className="space-y-2 text-[0.85rem]">
+          <h3 className="mb-4 text-[1.2rem] font-semibold">Links</h3>
+          <ul className="space-y-1.5 text-[0.75rem]">
             {links.map(({ label, href }) => (
               <li key={label}>
                 <Link href={href} className="transition-colors hover:text-[#ffc425]">
@@ -95,26 +95,26 @@ export function Footer() {
 
         {/* Working Hours */}
         <div className="lg:col-span-3">
-          <h3 className="mb-5 text-[1.5rem] font-semibold">Working Hours</h3>
-          <p className="text-[0.85rem]">Weekdays 9:00AM – 5:00PM</p>
+          <h3 className="mb-4 text-[1.2rem] font-semibold">Working Hours</h3>
+          <p className="text-[0.75rem]">Weekdays 9:00AM – 5:00PM</p>
         </div>
 
         {/* Get In Touch */}
         <div className="lg:col-span-3 min-w-[320px]">
-          <h3 className="mb-5 text-[1.5rem] font-semibold">Get In Touch</h3>
-          <p className="mb-2 text-[0.85rem]">info@cadconsultgh.com.gh</p>
-          <p className="mb-4 text-[0.85rem] leading-relaxed">
+          <h3 className="mb-4 text-[1.2rem] font-semibold">Get In Touch</h3>
+          <p className="mb-1.5 text-[0.75rem]">info@cadconsultgh.com.gh</p>
+          <p className="mb-3 text-[0.75rem] leading-relaxed">
             (233) 0303 934116/ (233) 2776 03276
             <br />
             (233) 2099 81240 / (233) 0204 342261
           </p>
-          <ul className="grid grid-cols-2 gap-1.5 text-[0.85rem 2xl:gap-1]">
+          <ul className="grid grid-cols-2 gap-1 text-[0.75rem]">
             {socials.map(({ label, href, icon }) => (
               <li key={label}>
                 <Link
                   href={href}
                   aria-label={label}
-                  className="flex items-center gap-1.5 text-[0.85rem] transition-colors hover:text-[#ffc425]"
+                  className="flex items-center gap-1 text-[0.75rem] transition-colors hover:text-[#ffc425]"
                 >
                   {icon}
                   <span>{label}</span>
@@ -126,9 +126,9 @@ export function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="px-[5%] flex flex-wrap items-center justify-between gap-2 border-t border-white/20 py-4 text-[0.76rem] font-semibold lg:py-5 lg:text-[0.85rem]">
+      <div className="px-[5%] flex flex-wrap items-center justify-between gap-1.5 border-t border-white/20 py-3 text-[0.68rem] font-semibold lg:py-4 lg:text-[0.75rem]">
         <span>© 2026 CAD Consult Ghana</span>
-        <div className="flex gap-6">
+        <div className="flex gap-5">
           <Link href="#" className="transition-colors hover:text-[#ffc425]">
             Privacy Policy
           </Link>

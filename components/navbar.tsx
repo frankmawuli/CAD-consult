@@ -20,32 +20,32 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 right-0 left-0 z-50 bg-white shadow-sm">
-      <div className="flex h-14 items-center justify-between px-[5%] lg:h-18">
+      <div className="flex h-11 items-center justify-between px-[5%] lg:h-14">
         {/* Logo */}
         <Link
           href="/"
-          className="flex items-center gap-1.5 lg:gap-2.5"
+          className="flex items-center gap-1 lg:gap-2"
           onClick={() => setOpen(false)}
         >
           <Image
             src="/images/nav-logo.svg"
             alt="CAD Consult Gh logo"
-            width={48}
-            height={48}
-            className="h-9 w-11.5"
+            width={38}
+            height={38}
+            className="h-7 w-9"
           />
-          <span className="text-sm leading-tight font-semibold text-[#0e3874] lg:text-xl">
+          <span className="text-xs leading-tight font-semibold text-[#0e3874] lg:text-lg">
             CAD Consult Gh
           </span>
         </Link>
 
         {/* Desktop links */}
-        <ul className="hidden items-center gap-6 lg:flex xl:gap-8">
+        <ul className="hidden items-center gap-5 lg:flex xl:gap-6">
           {NAV_LINKS.map(({ label, href }) => (
             <li key={href}>
               <Link
                 href={href}
-                className={`text-base font-medium transition-colors hover:text-accent ${
+                className={`text-sm font-medium transition-colors hover:text-accent ${
                   pathname === href ? "text-[#0e3874]" : "text-[#0e3874]"
                 }`}
               >
@@ -57,14 +57,14 @@ export function Navbar() {
 
         {/* Hamburger button — mobile only */}
         <button
-          className="-mr-1 p-2 text-[#0e3874] lg:hidden"
+          className="-mr-1 p-1.5 text-[#0e3874] lg:hidden"
           onClick={() => setOpen((o) => !o)}
           aria-label={open ? "Close menu" : "Open menu"}
         >
           {open ? (
             <svg
-              width="21"
-              height="21"
+              width="17"
+              height="17"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -75,8 +75,8 @@ export function Navbar() {
             </svg>
           ) : (
             <svg
-              width="21"
-              height="21"
+              width="17"
+              height="17"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -91,14 +91,14 @@ export function Navbar() {
 
       {/* Mobile drawer */}
       {open && (
-        <div className="border-t border-gray-100 bg-white px-4 pb-4 lg:hidden">
+        <div className="border-t border-gray-100 bg-white px-3 pb-3 lg:hidden">
           <ul className="flex flex-col">
             {NAV_LINKS.map(({ label, href }) => (
               <li key={href}>
                 <Link
                   href={href}
                   onClick={() => setOpen(false)}
-                  className={`block border-b border-gray-100 py-2 text-sm font-medium transition-colors ${
+                  className={`block border-b border-gray-100 py-1.5 text-xs font-medium transition-colors ${
                     pathname === href ? "text-[#0e3874]" : "text-[#0e3874]"
                   }`}
                 >

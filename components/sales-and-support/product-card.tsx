@@ -19,13 +19,13 @@ export default function ProductCard({ product }: { product: Product }) {
       </p>
       <div className="flex gap-2.5 mt-auto w-full justify-center">
         <Link
-          href={`/services/${product.slug}`}
+          href={`/sales-and-support/${product.slug}`}
           className="border border-[#0e3874] text-[#0e3874] font-medium text-[0.6875rem] px-3 py-2 rounded-[9px] hover:bg-[#0e3874] hover:text-white transition-colors whitespace-nowrap"
         >
           Product Details
         </Link>
         <Link
-          href="/services/request"
+          href="/sales-and-support/request"
           className="bg-[#ffc425] text-white font-medium text-[0.6875rem] px-3 py-2 rounded-[9px] hover:bg-[#e6b020] transition-colors whitespace-nowrap"
         >
           Request Item
