@@ -6,8 +6,8 @@ const countries = [
   { name: "Nigeria",      flag: "/images/about/flag-nigeria.png"      },
   { name: "Guinea",       flag: "/images/about/flag-guinea.png"       },
   { name: "Benin",        flag: "/images/about/flag-benin.png"        },
-  { name: "Gambia",       flag: "/images/about/gambia-flag.png"       },
-  { name: "Gabon",        flag: "/images/about/gabon-flag.png"        },
+  { name: "Gambia",       flag: "/images/about/Gambia-flag.png"       },
+  { name: "Gabon",        flag: "/images/about/Gabon-flag.png"        },
 ]
 
 export function AboutMap() {
@@ -21,13 +21,18 @@ export function AboutMap() {
         {/* West Africa Map */}
         <div className="flex justify-center mb-10 lg:mb-12">
           <Image
-            src="/images/about/globe.svg"
+            src="/images/about/Globe.svg"
             alt="West Africa map showing CAD Consult GH operation countries"
             width={1246}
             height={901}
             className="w-full max-w-4xl h-auto"
           />
         </div>
+
+        {/* Countries heading */}
+        <h2 className="font-semibold text-black text-[clamp(1.6rem,3.2vw,3.05rem)] tracking-[-0.04em] text-center mb-8">
+          Countries
+        </h2>
 
         {/* Country flags */}
         <div className="flex flex-wrap justify-center gap-6 lg:gap-12">

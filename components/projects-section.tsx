@@ -30,11 +30,7 @@ function NavButton({
       className={`absolute top-1/2 -translate-y-1/2 z-40
       w-8 h-8 sm:w-11 sm:h-11 rounded-full bg-[#0E3874]
       flex items-center justify-center shadow-lg transition-all
-      ${
-        flipped
-          ? "left-[calc(50%+7.5rem)] sm:left-[calc(50%+10.5rem)] md:left-[calc(50%+13rem)] lg:left-[calc(50%+16.5rem)]"
-          : "left-[calc(50%-9.5rem)] sm:left-[calc(50%-13.25rem)] md:left-[calc(50%-15.75rem)] lg:left-[calc(50%-19.25rem)]"
-      }`}
+      ${flipped ? "right-2 sm:right-4" : "left-2 sm:left-4"}`}
     >
       <svg
         width="14"
@@ -86,7 +82,7 @@ export function ProjectsSection() {
 
   return (
     <section className="py-12 lg:py-20 bg-white overflow-hidden">
-      <h2 className="font-semibold text-black text-[clamp(1.4rem,2vw,2.24rem)] tracking-[-0.04em] text-center mb-8 lg:mb-[6.4rem] px-4">
+      <h2 className="font-semibold text-black text-[clamp(1.75rem,2.5vw,2.8rem)] tracking-[-0.04em] text-center mb-10 lg:mb-24 px-5">
         Projects We&apos;ve Delivered
       </h2>
 

@@ -19,7 +19,7 @@ const logos: Logo[] = [
 
 export default function IconSlider() {
   return (
-    <section className="py-12 bg-white overflow-hidden">
+    <section className="py-36 bg-white overflow-hidden">
       <div className="max-w-6xl mx-auto px-4 mb-8 text-center">
         <h2 className="font-semibold text-black text-[clamp(1.75rem,2.5vw,2.8rem)] tracking-[-0.04em] text-center mb-10 lg:mb-24 px-5">
         Authorized Distributors 

@@ -1,6 +1,6 @@
 import Image from "next/image"
 import Link from "next/link"
-import { type Product } from "@/app/services/products-data"
+import { type Product } from "@/app/sales-and-support/products-data"
 
 export default function ProductCard({ product }: { product: Product }) {
   return (

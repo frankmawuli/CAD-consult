@@ -4,8 +4,9 @@ import Link from "next/link"
 const links = [
   { label: "Home",            href: "/" },
   { label: "About Us",        href: "/about" },
-  { label: "Training Centre", href: "/training" },
+  {label: "Sales and Support", href: "/sales-and-support"},
   { label: "Services",        href: "/services" },
+  { label: "Training Centre", href: "/training" },
   { label: "Contact Us",      href: "/contact" },
 ]
 
@@ -107,7 +108,7 @@ export function Footer() {
             <br />
             (233) 2099 81240 / (233) 0204 342261
           </p>
-          <ul className="grid grid-cols-2 gap-1.5 text-[0.85rem]">
+          <ul className="grid grid-cols-2 gap-1.5 text-[0.85rem 2xl:gap-1]">
             {socials.map(({ label, href, icon }) => (
               <li key={label}>
                 <Link
@@ -131,7 +132,7 @@ export function Footer() {
           <Link href="#" className="transition-colors hover:text-[#ffc425]">
             Privacy Policy
           </Link>
-          <Link href="#" className="transition-colors hover:text-[#ffc425] 2xl:mr-[100px]">
+          <Link href="#" className="transition-colors hover:text-[#ffc425] 2xl:mr-[100px] ">
             Terms of Service
           </Link>
         </div>
