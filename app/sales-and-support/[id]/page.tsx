@@ -26,7 +26,7 @@ function ProductCard({ product }: { product: Product }) {
           Product Details
         </Link>
         <Link
-          href="/services/request"
+          href={`/sales-and-support/request?product=${encodeURIComponent(product.fullName)}`}
           className="rounded-[9px] bg-[#ffc425] px-3 py-2 text-[0.6875rem] font-medium whitespace-nowrap text-white transition-colors hover:bg-[#e6b020]"
         >
           Request Item
@@ -51,22 +51,22 @@ export default async function ProductDetailPage({
     <main className="bg-[#f1f1f1]">
       {/* ── Detail Panel ── */}
       <section className="bg-[#f1f1f1] px-[5%] py-8 md:py-12">
-        <div className="mx-auto max-w-7xl flex flex-col md:flex-row items-center gap-8 md:gap-12 py-8 md:py-24">
+        <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 py-8 md:flex-row md:gap-12 md:py-24">
           {/* Product Image */}
-          <div className="w-full md:w-[45%] shrink-0 flex items-center justify-center border border-gray-200 bg-white p-6 aspect-square">
+          <div className="flex aspect-square w-full shrink-0 items-center justify-center border border-gray-200 bg-white p-6 md:w-[45%]">
             <Image
               src={product.image}
               alt={product.fullName}
               width={700}
               height={500}
               priority
-              className="w-full h-full object-contain"
+              className="h-full w-full object-contain"
             />
           </div>
 
           {/* Product Info */}
-          <div className="flex-1 flex flex-col w-full">
-            <h1 className="mb-4 md:mb-6 max-w-3xl text-[clamp(1.2rem,2.5vw,1.6rem)] leading-tight font-bold text-black">
+          <div className="flex w-full flex-1 flex-col">
+            <h1 className="mb-4 max-w-3xl text-[clamp(1.2rem,2.5vw,1.6rem)] leading-tight font-bold text-black md:mb-6">
               {product.fullName}
             </h1>
 
@@ -75,7 +75,7 @@ export default async function ProductDetailPage({
             </h2>
 
             {/* Spec Grid */}
-            <div className="grid gap-x-8 gap-y-4 md:gap-x-12 md:gap-y-6 md:grid-cols-2">
+            <div className="grid gap-x-8 gap-y-4 md:grid-cols-2 md:gap-x-12 md:gap-y-6">
               {product.specs?.map((group) => (
                 <div key={group.group}>
                   <h3 className="mb-2.5 font-semibold text-[#0e3874]">
@@ -98,15 +98,21 @@ export default async function ProductDetailPage({
                   </ul>
                 </div>
               ))}
+            </div>
+            <div className="mt-10 flex flex-wrap justify-start gap-4 lg:justify-end">
+              <Link
+                href={`/support?product=${encodeURIComponent(product.fullName)}`}
+                className="rounded-md bg-[#0e3874] px-8 py-3 font-medium text-white hover:bg-[#082b5b]"
+              >
+                Product Support
+              </Link>
 
-              <div className="flex items-end">
-                <Link
-                  href="/sales-and-support/request"
-                  className="rounded-md bg-[#ffc425] px-8 py-2.5 font-semibold text-black transition hover:bg-[#e8b321]"
-                >
-                  Request Item
-                </Link>
-              </div>
+              <Link
+                href={`/sales-and-support/request?product=${encodeURIComponent(product.fullName)}`}
+                className="rounded-md bg-[#ffc425] px-8 py-3 font-medium text-black hover:bg-[#e8b321]"
+              >
+                Request Item
+              </Link>
             </div>
           </div>
         </div>

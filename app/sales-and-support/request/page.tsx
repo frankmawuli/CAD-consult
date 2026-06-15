@@ -2,6 +2,7 @@
 
 import Image from "next/image"
 import { useState } from "react"
+import { useSearchParams } from "next/navigation"
 
 const ACCESSORIES = [
   "Carrying Case",
@@ -47,6 +48,8 @@ const labelCls =
   "block font-medium text-[#0e3874] text-[clamp(0.72rem,0.88vw,1rem)] mb-1.5"
 
 export default function ProductRequest() {
+  const searchParams = useSearchParams()
+  const productName = searchParams.get("product") ?? ""
   const [message, setMessage] = useState("")
   const [submitted, setSubmitted] = useState(false)
   const words = wordCount(message)
@@ -91,25 +94,20 @@ export default function ProductRequest() {
           ) : (
             <form onSubmit={handleSubmit} className="space-y-6">
 
+              {/* Product */}
+              <div>
+                <label className={labelCls}>
+                  What product are you requesting?<span className="text-[#ed1c24]">*</span>
+                </label>
+                <input type="text" placeholder="eg. Trimble GPS, Total Station, Drone..." required defaultValue={productName} className={inputCls} />
+              </div>
+
               {/* I would like to */}
               <div>
                 <label className={labelCls}>
-                  I would like to:<span className="text-[#ed1c24]">*</span>
+                  I would like to request:<span className="text-[#ed1c24]">*</span>
                 </label>
-                <div className="relative">
-                  <select className={selectCls} defaultValue="" required>
-                    <option value="" disabled />
-                    <option>Request a quote</option>
-                    <option>Get product information</option>
-                    <option>Schedule a demo</option>
-                    <option>Technical support</option>
-                    <option>Partnership enquiry</option>
-                    <option>Other</option>
-                  </select>
-                  <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#0e3874]">
-                    {chevronDown}
-                  </div>
-                </div>
+                <input type="text" placeholder="eg. Request a quote" required className={inputCls} />
               </div>
 
               {/* First + Last Name */}
