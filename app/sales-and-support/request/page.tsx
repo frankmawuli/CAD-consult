@@ -1,7 +1,6 @@
 "use client"
 
-import Image from "next/image"
-import { useState } from "react"
+import { Suspense, useState } from "react"
 import { useSearchParams } from "next/navigation"
 
 const ACCESSORIES = [
@@ -47,7 +46,7 @@ const selectCls =
 const labelCls =
   "block font-medium text-[#0e3874] text-[clamp(0.72rem,0.88vw,1rem)] mb-1.5"
 
-export default function ProductRequest() {
+function ProductRequestForm() {
   const searchParams = useSearchParams()
   const productName = searchParams.get("product") ?? ""
   const [message, setMessage] = useState("")
@@ -207,5 +206,13 @@ export default function ProductRequest() {
   
 
     </main>
+  )
+}
+
+export default function ProductRequest() {
+  return (
+    <Suspense>
+      <ProductRequestForm />
+    </Suspense>
   )
 }
