@@ -8,6 +8,7 @@ export type Product = {
   name: string
   fullName: string
   image: string
+  category: string
   specs?: ProductSpec[]
 }
 
@@ -17,6 +18,7 @@ export const products: Product[] = [
     name: "Delair-Tech UX5-HP\nAerial Imaging Drone",
     fullName: "Delair-Tech UX5-HP Aerial Imaging Drone",
     image: "/images/products/drone-delair.jpg",
+    category: "machine-control",
     specs: [
       {
         group: "Flight Performance",
@@ -50,6 +52,7 @@ export const products: Product[] = [
     name: "CHCNAV i85",
     fullName: "CHCNAV i85 GNSS Receiver",
     image: "/images/products/chcnav-i85.png",
+    category: "gnss-sensors",
     specs: [
       {
         group: "GNSS",
@@ -83,6 +86,7 @@ export const products: Product[] = [
     name: "CHCNAV ViLi i100",
     fullName: "CHCNAV ViLi i100 Mobile Laser Scanner",
     image: "/images/products/chcnav-vili-i100.png",
+    category: "hydrographic",
     specs: [
       {
         group: "Scanning",
@@ -116,6 +120,7 @@ export const products: Product[] = [
     name: "CHCNAV iBase",
     fullName: "CHCNAV iBase GNSS Reference Station",
     image: "/images/products/chcnav-ibase.png",
+    category: "gnss-sensors",
     specs: [
       {
         group: "GNSS",
@@ -148,6 +153,7 @@ export const products: Product[] = [
     name: "CHCNAV CGI-830",
     fullName: "CHCNAV CGI-830 Machine Control System",
     image: "/images/products/chcnav-cgi830.png",
+    category: "machine-control",
     specs: [
       {
         group: "GNSS",
@@ -180,6 +186,7 @@ export const products: Product[] = [
     name: "Autodesk Civil 3D:\nInfrastructure Design Software",
     fullName: "Autodesk Civil 3D: Infrastructure Design Software",
     image: "/images/products/software-cgo2.png",
+    category: "surveying-software",
     specs: [
       {
         group: "Design Capabilities",
@@ -212,6 +219,7 @@ export const products: Product[] = [
     name: "AutoCAD Map 3D",
     fullName: "AutoCAD Map 3D",
     image: "/images/products/software-cgo2.png",
+    category: "surveying-software",
     specs: [
       {
         group: "GIS Capabilities",
@@ -244,6 +252,7 @@ export const products: Product[] = [
     name: "CHCNAV APACHE 3",
     fullName: "CHCNAV APACHE 3 UAV",
     image: "/images/products/chcnav-apache3.png",
+    category: "machine-control",
     specs: [
       {
         group: "Flight Performance",
@@ -277,6 +286,7 @@ export const products: Product[] = [
     name: "CHCNAV CTS-A100",
     fullName: "CHCNAV CTS-A100 Android-Powered Total Station for Surveying and Engineering",
     image: "/images/products/chcnav-cts-a100.png",
+    category: "manual-guidance",
     specs: [
       {
         group: "Measurement",
@@ -307,6 +317,7 @@ export const products: Product[] = [
     name: "CHCNAV CTS-M100",
     fullName: "CHCNAV CTS-M100 Motorised Total Station",
     image: "/images/products/chcnav-cts-m100.png",
+    category: "machine-control",
     specs: [
       {
         group: "Measurement",
