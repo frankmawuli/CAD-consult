@@ -2,6 +2,10 @@
 
 import { Suspense, useState } from "react"
 import { useSearchParams } from "next/navigation"
+import { toast } from "sonner"
+import { productRequestSchema, type ProductRequestInput } from "@/lib/schemas/inquiry"
+import { submitInquiry } from "@/lib/services/inquiry"
+import { Loader } from "lucide-react"
 
 const ACCESSORIES = [
   "Carrying Case",
@@ -27,7 +31,10 @@ const COUNTRIES = [
   "Other",
 ]
 
-const MAX_WORDS = 150
+const INITIAL = {
+  product: "", intent: "", first_name: "", last_name: "",
+  email: "", phone: "", country: "Ghana", accessories: "", message: "",
+}
 
 function wordCount(text: string) {
   return text.trim() === "" ? 0 : text.trim().split(/\s+/).length
@@ -48,17 +55,44 @@ const labelCls =
 
 function ProductRequestForm() {
   const searchParams = useSearchParams()
-  const productName = searchParams.get("product") ?? ""
-  const [message, setMessage] = useState("")
-  const [submitted, setSubmitted] = useState(false)
-  const words = wordCount(message)
-  const overLimit = words > MAX_WORDS
+  const [form, setForm]           = useState({ ...INITIAL, product: searchParams.get("product") ?? "" })
+  const [errors, setErrors]       = useState<Partial<Record<keyof ProductRequestInput, string>>>({})
+  const [isSubmitting, setSubmit] = useState(false)
 
-  function handleSubmit(e: React.FormEvent) {
-    e.preventDefault()
-    if (overLimit) return
-    setSubmitted(true)
+  function field(name: keyof typeof form) {
+    return (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+      setForm((prev) => ({ ...prev, [name]: e.target.value }))
+      setErrors((prev) => ({ ...prev, [name]: undefined }))
+    }
   }
+
+  async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
+    e.preventDefault()
+    const result = productRequestSchema.safeParse(form)
+    if (!result.success) {
+      const errs: Partial<Record<keyof ProductRequestInput, string>> = {}
+      for (const issue of result.error.issues) {
+        const key = issue.path[0] as keyof ProductRequestInput
+        if (!errs[key]) errs[key] = issue.message
+      }
+      setErrors(errs)
+      return
+    }
+    setSubmit(true)
+    try {
+      await submitInquiry("product-request", result.data)
+      toast.success("Request submitted! We'll be in touch soon.")
+      setForm(INITIAL)
+      setErrors({})
+    } catch {
+      toast.error("Something went wrong. Please try again.")
+    } finally {
+      setSubmit(false)
+    }
+  }
+
+  const words     = wordCount(form.message)
+  const overLimit = words > 150
 
   return (
     <main className="bg-[#f5f5f5]">
@@ -70,140 +104,154 @@ function ProductRequestForm() {
             Product Request
           </h2>
 
-          {submitted ? (
-            <div className="flex flex-col items-center gap-5 py-12">
-              <div className="w-16 h-16 rounded-full bg-[#0e3874]/10 flex items-center justify-center">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#0e3874" className="w-8 h-8">
-                  <path fillRule="evenodd" d="M19.916 4.626a.75.75 0 0 1 .208 1.04l-9 13.5a.75.75 0 0 1-1.154.114l-6-6a.75.75 0 0 1 1.06-1.06l5.353 5.353 8.493-12.74a.75.75 0 0 1 1.04-.207Z" clipRule="evenodd" />
-                </svg>
+          <form onSubmit={handleSubmit} className="space-y-6">
+
+            {/* Product */}
+            <div>
+              <label className={labelCls}>
+                What product are you requesting?<span className="text-[#ed1c24]">*</span>
+              </label>
+              <input
+                type="text"
+                placeholder="eg. Trimble GPS, Total Station, Drone..."
+                value={form.product}
+                onChange={field("product")}
+                className={inputCls}
+              />
+              {errors.product && <p className="text-[#ed1c24] text-[0.7rem] mt-1">{errors.product}</p>}
+            </div>
+
+            {/* Intent */}
+          
+            {/* First + Last Name */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label className={labelCls}>
+                  First Name<span className="text-[#ed1c24]">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="eg. Joshua"
+                  value={form.first_name}
+                  onChange={field("first_name")}
+                  className={inputCls}
+                />
+                {errors.first_name && <p className="text-[#ed1c24] text-[0.7rem] mt-1">{errors.first_name}</p>}
               </div>
-              <p className="text-[#0e3874] font-semibold text-[clamp(1rem,1.6vw,1.4rem)] text-center">
-                Your request has been submitted!
+              <div>
+                <label className={labelCls}>
+                  Last Name<span className="text-[#ed1c24]">*</span>
+                </label>
+                <input
+                  type="text"
+                  placeholder="eg. Mensah"
+                  value={form.last_name}
+                  onChange={field("last_name")}
+                  className={inputCls}
+                />
+                {errors.last_name && <p className="text-[#ed1c24] text-[0.7rem] mt-1">{errors.last_name}</p>}
+              </div>
+            </div>
+
+            {/* Work Email + Phone */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label className={labelCls}>
+                  Work Email<span className="text-[#ed1c24]">*</span>
+                </label>
+                <input
+                  type="email"
+                  placeholder="you@company.com"
+                  value={form.email}
+                  onChange={field("email")}
+                  className={inputCls}
+                />
+                {errors.email && <p className="text-[#ed1c24] text-[0.7rem] mt-1">{errors.email}</p>}
+              </div>
+              <div>
+                <label className={labelCls}>
+                  Phone Number<span className="text-[#ed1c24]">*</span>
+                </label>
+                <input
+                  type="tel"
+                  placeholder="+233 59 511 5011"
+                  value={form.phone}
+                  onChange={field("phone")}
+                  className={inputCls}
+                />
+                <p className="text-[#0e3874] text-[clamp(0.6rem,0.72vw,0.85rem)] mt-1.5">
+                  Please include country code.
+                </p>
+                {errors.phone && <p className="text-[#ed1c24] text-[0.7rem] mt-1">{errors.phone}</p>}
+              </div>
+            </div>
+
+            {/* Country + Accessories */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+              <div>
+                <label className={labelCls}>
+                  Country<span className="text-[#ed1c24]">*</span>
+                </label>
+                <div className="relative">
+                  <select
+                    value={form.country}
+                    onChange={field("country")}
+                    className={selectCls}
+                  >
+                    {COUNTRIES.map((c) => <option key={c}>{c}</option>)}
+                  </select>
+                  <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#0e3874]">
+                    {chevronDown}
+                  </div>
+                </div>
+              </div>
+              <div>
+                <label className={labelCls}>Accessories (Optional)</label>
+                <div className="relative">
+                  <select
+                    value={form.accessories}
+                    onChange={field("accessories")}
+                    className={selectCls}
+                  >
+                    <option value="" />
+                    {ACCESSORIES.map((a) => <option key={a}>{a}</option>)}
+                  </select>
+                  <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#0e3874]">
+                    {chevronDown}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Message */}
+            <div>
+              <label className={labelCls}>Your Message (Optional)</label>
+              <textarea
+                rows={6}
+                placeholder="Tell us about your project, team size, timeline or any specific questions you have. The more detail you share, the better we can help."
+                value={form.message}
+                onChange={field("message")}
+                className={`${inputCls} resize-none ${overLimit ? "border-[#ed1c24] focus:ring-[#ed1c24]/30" : ""}`}
+              />
+              <p className={`text-[clamp(0.6rem,0.72vw,0.9rem)] mt-1.5 font-medium ${overLimit ? "text-[#ed1c24]" : "text-[#0e3874]"}`}>
+                {words} / 150 words{overLimit ? " — please shorten your message" : ""}
               </p>
-              <p className="text-gray-500 text-[clamp(0.72rem,0.96vw,0.9rem)] text-center max-w-lg">
-                Thank you for reaching out. Our team will get back to you shortly.
-              </p>
+              {errors.message && <p className="text-[#ed1c24] text-[0.7rem] mt-1">{errors.message}</p>}
+            </div>
+
+            {/* Submit */}
+            <div className="flex justify-end">
               <button
-                onClick={() => setSubmitted(false)}
-                className="mt-3 text-[#0e3874] underline underline-offset-4 text-[clamp(0.7rem,0.8vw,0.8rem)] hover:text-[#0b2d5e] transition-colors"
+                type="submit"
+                disabled={isSubmitting || overLimit}
+                className="bg-[#0e3874] text-white font-medium text-[clamp(0.8rem,1.12vw,1.3rem)] px-10 py-4 rounded-[10px] hover:bg-[#0b2d5e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
-                Submit another request
+                {isSubmitting ? <Loader className="animate-spin" /> : "Submit message"}
               </button>
             </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-6">
-
-              {/* Product */}
-              <div>
-                <label className={labelCls}>
-                  What product are you requesting?<span className="text-[#ed1c24]">*</span>
-                </label>
-                <input type="text" placeholder="eg. Trimble GPS, Total Station, Drone..." required defaultValue={productName} className={inputCls} />
-              </div>
-
-              {/* I would like to */}
-              <div>
-                <label className={labelCls}>
-                  I would like to request:<span className="text-[#ed1c24]">*</span>
-                </label>
-                <input type="text" placeholder="eg. Request a quote" required className={inputCls} />
-              </div>
-
-              {/* First + Last Name */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label className={labelCls}>
-                    First Name<span className="text-[#ed1c24]">*</span>
-                  </label>
-                  <input type="text" placeholder="eg. Joshua" required className={inputCls} />
-                </div>
-                <div>
-                  <label className={labelCls}>
-                    Last Name<span className="text-[#ed1c24]">*</span>
-                  </label>
-                  <input type="text" placeholder="eg. Mensah" required className={inputCls} />
-                </div>
-              </div>
-
-              {/* Work Email + Phone */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label className={labelCls}>
-                    Work Email<span className="text-[#ed1c24]">*</span>
-                  </label>
-                  <input type="email" placeholder="you@company.com" required className={inputCls} />
-                </div>
-                <div>
-                  <label className={labelCls}>
-                    Phone Number<span className="text-[#ed1c24]">*</span>
-                  </label>
-                  <input type="tel" placeholder="+233 59 511 5011" required className={inputCls} />
-                  <p className="text-[#0e3874] text-[clamp(0.6rem,0.72vw,0.85rem)] mt-1.5">
-                    Please include country code.
-                  </p>
-                </div>
-              </div>
-
-              {/* Country + Accessories */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
-                <div>
-                  <label className={labelCls}>
-                    Country<span className="text-[#ed1c24]">*</span>
-                  </label>
-                  <div className="relative">
-                    <select className={selectCls} defaultValue="Ghana" required>
-                      {COUNTRIES.map((c) => <option key={c}>{c}</option>)}
-                    </select>
-                    <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#0e3874]">
-                      {chevronDown}
-                    </div>
-                  </div>
-                </div>
-                <div>
-                  <label className={labelCls}>Accessories (Optional)</label>
-                  <div className="relative">
-                    <select className={selectCls} defaultValue="">
-                      <option value="" />
-                      {ACCESSORIES.map((a) => <option key={a}>{a}</option>)}
-                    </select>
-                    <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#0e3874]">
-                      {chevronDown}
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              {/* Message */}
-              <div>
-                <label className={labelCls}>Your Message (Optional)</label>
-                <textarea
-                  rows={6}
-                  placeholder="Tell us about your project, team size, timeline or any specific questions you have. The more detail you share, the better we can help."
-                  value={message}
-                  onChange={(e) => setMessage(e.target.value)}
-                  className={`${inputCls} resize-none ${overLimit ? "border-[#ed1c24] focus:ring-[#ed1c24]/30" : ""}`}
-                />
-                <p className={`text-[clamp(0.6rem,0.72vw,0.9rem)] mt-1.5 font-medium ${overLimit ? "text-[#ed1c24]" : "text-[#0e3874]"}`}>
-                  {words} / {MAX_WORDS} words{overLimit ? " — please shorten your message" : ""}
-                </p>
-              </div>
-
-              {/* Submit */}
-              <div className="flex justify-end">
-                <button
-                  type="submit"
-                  disabled={overLimit}
-                  className="bg-[#0e3874] text-white font-medium text-[clamp(0.8rem,1.12vw,1.3rem)] px-10 py-4 rounded-[10px] hover:bg-[#0b2d5e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
-                >
-                  Submit message
-                </button>
-              </div>
-            </form>
-          )}
+          </form>
         </div>
       </section>
-
-  
 
     </main>
   )
