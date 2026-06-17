@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma"
-import { resend, FROM, COMPANY_EMAIL } from "@/lib/resend"
+import { resend, FROM, COMPANY_EMAIL, TEAM_EMAIL } from "@/lib/resend"
 import { FORM_LABELS, companyEmailHtml, confirmationEmailHtml, type InquiryBody } from "@/lib/emails/inquiry"
 
 export async function POST(req: Request) {
@@ -43,9 +43,9 @@ export async function POST(req: Request) {
         subject: `We received your ${FORM_LABELS[form_type]} — CAD`,
         html: confirmationEmailHtml(body),
       }),
-      ...(process.env.TEAM_EMAIL ? [resend.emails.send({
+      ...(TEAM_EMAIL ? [resend.emails.send({
         from: FROM,
-        to: email,
+        to: TEAM_EMAIL,
         subject: `New ${FORM_LABELS[form_type]} from ${first_name} ${last_name}`,
         html: companyEmailHtml(body),
       })] : []),
