@@ -30,25 +30,38 @@ export async function POST(req: Request) {
       },
     })
 
+    const sendEmail = async (label: string, payload: Parameters<typeof resend.emails.send>[0]) => {
+      try {
+        const { error } = await resend.emails.send(payload)
+        if (error) console.error(`Failed to send ${label} email:`, error)
+      } catch (err) {
+        console.error(`Failed to send ${label} email:`, err)
+      }
+    }
+
     await Promise.all([
-      resend.emails.send({
+      sendEmail("company", {
         from: FROM,
         to: COMPANY_EMAIL,
         subject: `New ${FORM_LABELS[form_type]} from ${first_name} ${last_name}`,
         html: companyEmailHtml(body),
       }),
-      resend.emails.send({
+      sendEmail("confirmation", {
         from: FROM,
         to: email,
         subject: `We received your ${FORM_LABELS[form_type]} — CAD`,
         html: confirmationEmailHtml(body),
       }),
-      ...(TEAM_EMAIL ? [resend.emails.send({
-        from: FROM,
-        to: TEAM_EMAIL,
-        subject: `New ${FORM_LABELS[form_type]} from ${first_name} ${last_name}`,
-        html: companyEmailHtml(body),
-      })] : []),
+      ...(TEAM_EMAIL
+        ? [
+            sendEmail("team", {
+              from: FROM,
+              to: TEAM_EMAIL,
+              subject: `New ${FORM_LABELS[form_type]} from ${first_name} ${last_name}`,
+              html: companyEmailHtml(body),
+            }),
+          ]
+        : []),
     ])
 
     return Response.json({ success: true, id: inquiry.id }, { status: 201 })
