@@ -1,4 +1,4 @@
-export type FormType = "contact" | "product-request" | "support"
+export type FormType = "contact" | "product-request" | "support" | "service"
 
 export interface InquiryBody {
   form_type: FormType
@@ -17,6 +17,7 @@ export const FORM_LABELS: Record<FormType, string> = {
   "contact": "Contact Us",
   "product-request": "Product Request",
   "support": "Product Support",
+  "service": "Service Request",
 }
 
 export function companyEmailHtml(body: InquiryBody) {

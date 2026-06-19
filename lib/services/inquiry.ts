@@ -1,6 +1,6 @@
 import type { ContactInput, SupportInput, ProductRequestInput } from "@/lib/schemas/inquiry"
 
-type FormType = "contact" | "support" | "product-request"
+type FormType = "contact" | "support" | "product-request" | "service"
 type InquiryData = ContactInput | SupportInput | ProductRequestInput
 
 export async function submitInquiry(form_type: FormType, data: InquiryData) {

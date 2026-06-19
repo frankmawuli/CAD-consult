@@ -1,5 +1,5 @@
 import { prisma } from "@/lib/prisma"
-import { resend, FROM, COMPANY_EMAIL, TEAM_EMAIL } from "@/lib/resend"
+import { resend, recipientsFor, fromFor } from "@/lib/resend"
 import { FORM_LABELS, companyEmailHtml, confirmationEmailHtml, type InquiryBody } from "@/lib/emails/inquiry"
 
 export async function POST(req: Request) {
@@ -11,9 +11,12 @@ export async function POST(req: Request) {
       return Response.json({ error: "Missing required fields" }, { status: 400 })
     }
 
-    if (!["contact", "product-request", "support"].includes(form_type)) {
+    if (!["contact", "product-request", "support", "service"].includes(form_type)) {
       return Response.json({ error: "Invalid form_type" }, { status: 400 })
     }
+
+    const { company: companyEmail, team: teamEmail } = recipientsFor(form_type)
+    const from = fromFor(form_type)
 
     const inquiry = await prisma.inquiry.create({
       data: {
@@ -41,22 +44,22 @@ export async function POST(req: Request) {
 
     await Promise.all([
       sendEmail("company", {
-        from: FROM,
-        to: COMPANY_EMAIL,
+        from,
+        to: companyEmail,
         subject: `New ${FORM_LABELS[form_type]} from ${first_name} ${last_name}`,
         html: companyEmailHtml(body),
       }),
       sendEmail("confirmation", {
-        from: FROM,
+        from,
         to: email,
         subject: `We received your ${FORM_LABELS[form_type]} — CAD`,
         html: confirmationEmailHtml(body),
       }),
-      ...(TEAM_EMAIL && COMPANY_EMAIL
+      ...(teamEmail && companyEmail
         ? [
             sendEmail("team", {
-              from: FROM,
-              to: TEAM_EMAIL,
+              from,
+              to: teamEmail,
               subject: `New ${FORM_LABELS[form_type]} from ${first_name} ${last_name}`,
               html: companyEmailHtml(body),
             }),
