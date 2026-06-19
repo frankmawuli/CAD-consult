@@ -52,7 +52,7 @@ export async function POST(req: Request) {
         subject: `We received your ${FORM_LABELS[form_type]} — CAD`,
         html: confirmationEmailHtml(body),
       }),
-      ...(TEAM_EMAIL
+      ...(TEAM_EMAIL && COMPANY_EMAIL
         ? [
             sendEmail("team", {
               from: FROM,
