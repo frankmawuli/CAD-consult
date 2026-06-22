@@ -1,9 +1,25 @@
 import { prisma } from "@/lib/prisma"
+import { clientIp, inquiryRateLimit } from "@/lib/rate-limit"
 import { resend, recipientsFor, fromFor } from "@/lib/resend"
 import { FORM_LABELS, companyEmailHtml, confirmationEmailHtml, type InquiryBody } from "@/lib/emails/inquiry"
 
 export async function POST(req: Request) {
   try {
+    const { success, limit, remaining, reset } = await inquiryRateLimit.limit(clientIp(req))
+    if (!success) {
+      return Response.json(
+        { error: "Too many requests" },
+        {
+          status: 429,
+          headers: {
+            "X-RateLimit-Limit": String(limit),
+            "X-RateLimit-Remaining": String(remaining),
+            "X-RateLimit-Reset": String(reset),
+          },
+        }
+      )
+    }
+
     const body: InquiryBody = await req.json()
     const { form_type, first_name, last_name, email, phone, country, message, intent, product, accessories } = body
 
