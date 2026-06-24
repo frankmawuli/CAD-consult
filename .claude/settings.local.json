@@ -20,7 +20,8 @@
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/cf55b998-fbe9-4965-983d-b7543c2376bf\" -o flag-burkina-faso.png)",
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/a31f7583-4856-4057-b990-cf8cd9e148af\" -o flag-sierra-leone.png)",
       "Bash(curl -sL \"https://www.figma.com/api/mcp/asset/4a4fe021-f01b-40af-88b5-0641b6d86614\" -o flag-nigeria.png)",
-      "mcp__plugin_figma_figma__whoami"
+      "mcp__plugin_figma_figma__whoami",
+      "mcp__plugin_figma_figma__download_assets"
     ]
   }
 }

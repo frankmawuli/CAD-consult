@@ -11,8 +11,8 @@ export default function ServicesPage() {
       <ServicesSearch />
 
       {/* Sidebar + Products */}
-      <section className="px-[5%] pb-16 lg:pb-[5.6rem]">
-        <div className="flex flex-col lg:flex-row gap-8 lg:gap-10">
+      <section className="px-[5%] pb-16 lg:pb-[500px]">
+        <div className="flex flex-col lg:flex-row gap-8 lg:gap-10 ">
           <Suspense>
             <ProductSidebar />
           </Suspense>

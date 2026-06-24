@@ -1,25 +1,70 @@
 "use client"
 
 import { useSearchParams } from "next/navigation"
+import { useEffect, useState } from "react"
 import { products } from "@/app/sales-and-support/products-data"
 import ProductCard from "./product-card"
+
+const ITEMS_PER_PAGE = 12
 
 export default function ProductsGrid() {
   const searchParams = useSearchParams()
   const category = searchParams.get("category") ?? ""
+  const [page, setPage] = useState(1)
+
+  useEffect(() => {
+    setPage(1)
+  }, [category])
 
   const filtered = category
     ? products.filter((p) => p.category === category)
     : products
 
+  const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE)
+  const paginated = filtered.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE)
+
   return (
-    <div className="flex-1 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
-      {filtered.length > 0 ? (
-        filtered.map((product, i) => <ProductCard key={i} product={product} />)
-      ) : (
-        <p className="col-span-full text-center text-[#6a6a6a] py-12">
-          No products found in this category.
-        </p>
+    <div className="flex-1 flex flex-col gap-5">
+      <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
+        {paginated.length > 0 ? (
+          paginated.map((product, i) => <ProductCard key={i} product={product} />)
+        ) : (
+          <p className="col-span-full text-center text-[#6a6a6a] py-12">
+            No products found in this category.
+          </p>
+        )}
+      </div>
+
+      {totalPages > 1 && (
+        <div className="flex items-center justify-end gap-2 pt-4">
+          <button
+            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            disabled={page === 1}
+            className="px-4 py-2 rounded-[8px] border border-[#0e3874] text-[#0e3874] text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#0e3874] hover:text-white transition-colors"
+          >
+            Previous
+          </button>
+          {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
+            <button
+              key={p}
+              onClick={() => setPage(p)}
+              className={`w-9 h-9 rounded-[8px] text-sm font-medium transition-colors ${
+                p === page
+                  ? "bg-[#0e3874] text-white"
+                  : "border border-[#0e3874] text-[#0e3874] hover:bg-[#0e3874] hover:text-white"
+              }`}
+            >
+              {p}
+            </button>
+          ))}
+          <button
+            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            disabled={page === totalPages}
+            className="px-4 py-2 rounded-[8px] border border-[#0e3874] text-[#0e3874] text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#0e3874] hover:text-white transition-colors"
+          >
+            Next
+          </button>
+        </div>
       )}
     </div>
   )

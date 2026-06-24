@@ -1,5 +1,6 @@
 "use client"
 
+import { Loader } from "lucide-react"
 import Image from "next/image"
 import { useState } from "react"
 
@@ -56,15 +57,62 @@ const labelCls =
   "block font-medium text-[#0e3874] text-[clamp(0.72rem,0.88vw,1rem)] mb-1.5"
 
 export default function LaboratoryServices() {
-  const [issue, setIssue] = useState("")
+  const [fields, setFields] = useState({
+    first_name: "",
+    last_name: "",
+    email: "",
+    phone: "",
+    country: "Ghana",
+    device_name: "",
+    model_number: "",
+    device_category: "",
+    service_type: "",
+    issue: "",
+  })
   const [submitted, setSubmitted] = useState(false)
-  const words = wordCount(issue)
+  const [loading, setLoading] = useState(false)
+  const [error, setError] = useState<string | null>(null)
+
+  const words = wordCount(fields.issue)
   const overLimit = words > MAX_WORDS
 
-  function handleSubmit(e: React.FormEvent) {
+  function set(key: keyof typeof fields) {
+    return (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) =>
+      setFields((prev) => ({ ...prev, [key]: e.target.value }))
+  }
+
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault()
     if (overLimit) return
-    setSubmitted(true)
+    setLoading(true)
+    setError(null)
+    try {
+      const res = await fetch("/api/inquiry", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          form_type: "service",
+          first_name: fields.first_name,
+          last_name: fields.last_name,
+          email: fields.email,
+          phone: fields.phone,
+          country: fields.country,
+          product: fields.device_name,
+          accessories: fields.model_number,
+          intent: `${fields.service_type} — ${fields.device_category}`,
+          message: fields.issue,
+        }),
+      })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data.error ?? "Something went wrong. Please try again.")
+      }
+      setSubmitted(true)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.")
+    } finally {
+      setLoading(false)
+    }
   }
 
   return (
@@ -118,7 +166,10 @@ export default function LaboratoryServices() {
                 Thank you for reaching out. Our technicians will follow up within 1-2 working days.
               </p>
               <button
-                onClick={() => setSubmitted(false)}
+                onClick={() => {
+                  setSubmitted(false)
+                  setFields({ first_name: "", last_name: "", email: "", phone: "", country: "Ghana", device_name: "", model_number: "", device_category: "", service_type: "", issue: "" })
+                }}
                 className="mt-3 text-[#0e3874] underline underline-offset-4 text-[clamp(0.7rem,0.8vw,0.8rem)] hover:text-[#0b2d5e] transition-colors"
               >
                 Submit another request
@@ -137,6 +188,8 @@ export default function LaboratoryServices() {
                     type="text"
                     placeholder="eg. Joshua"
                     required
+                    value={fields.first_name}
+                    onChange={set("first_name")}
                     className={inputCls}
                   />
                 </div>
@@ -148,6 +201,8 @@ export default function LaboratoryServices() {
                     type="text"
                     placeholder="eg. Mensah"
                     required
+                    value={fields.last_name}
+                    onChange={set("last_name")}
                     className={inputCls}
                   />
                 </div>
@@ -163,6 +218,8 @@ export default function LaboratoryServices() {
                     type="email"
                     placeholder="you@company.com"
                     required
+                    value={fields.email}
+                    onChange={set("email")}
                     className={inputCls}
                   />
                 </div>
@@ -174,6 +231,8 @@ export default function LaboratoryServices() {
                     type="tel"
                     placeholder="+233 59 501 5811"
                     required
+                    value={fields.phone}
+                    onChange={set("phone")}
                     className={inputCls}
                   />
                   <p className="text-[#0e3874] text-[clamp(0.6rem,0.72vw,0.85rem)] mt-1.5">
@@ -188,7 +247,7 @@ export default function LaboratoryServices() {
                   Country<span className="text-[#ed1c24]">*</span>
                 </label>
                 <div className="relative">
-                  <select className={selectCls} defaultValue="Ghana" required>
+                  <select className={selectCls} value={fields.country} onChange={set("country")} required>
                     {COUNTRIES.map((c) => <option key={c}>{c}</option>)}
                   </select>
                   <div className="pointer-events-none absolute right-4 top-1/2 -translate-y-1/2 text-[#0e3874]">
@@ -207,6 +266,8 @@ export default function LaboratoryServices() {
                     type="text"
                     placeholder="eg. TRIMBLE R10 PPK KIT"
                     required
+                    value={fields.device_name}
+                    onChange={set("device_name")}
                     className={inputCls}
                   />
                 </div>
@@ -218,6 +279,8 @@ export default function LaboratoryServices() {
                     type="text"
                     placeholder="TB-A5811"
                     required
+                    value={fields.model_number}
+                    onChange={set("model_number")}
                     className={inputCls}
                   />
                 </div>
@@ -230,7 +293,7 @@ export default function LaboratoryServices() {
                     Device Category<span className="text-[#ed1c24]">*</span>
                   </label>
                   <div className="relative">
-                    <select className={selectCls} defaultValue="" required>
+                    <select className={selectCls} value={fields.device_category} onChange={set("device_category")} required>
                       <option value="" disabled>Select Categories</option>
                       {DEVICE_CATEGORIES.map((c) => <option key={c}>{c}</option>)}
                     </select>
@@ -244,7 +307,7 @@ export default function LaboratoryServices() {
                     Service Type<span className="text-[#ed1c24]">*</span>
                   </label>
                   <div className="relative">
-                    <select className={selectCls} defaultValue="" required>
+                    <select className={selectCls} value={fields.service_type} onChange={set("service_type")} required>
                       <option value="" disabled>Select type</option>
                       {SERVICE_TYPES.map((s) => <option key={s}>{s}</option>)}
                     </select>
@@ -263,8 +326,8 @@ export default function LaboratoryServices() {
                 <textarea
                   rows={6}
                   placeholder="Describe what's wrong, when it started, and any error messages you've seen..."
-                  value={issue}
-                  onChange={(e) => setIssue(e.target.value)}
+                  value={fields.issue}
+                  onChange={set("issue")}
                   required
                   className={`${inputCls} resize-none ${overLimit ? "border-[#ed1c24] focus:ring-[#ed1c24]/30" : ""}`}
                 />
@@ -273,14 +336,20 @@ export default function LaboratoryServices() {
                 </p>
               </div>
 
+              {error && (
+                <p className="text-[#ed1c24] text-[clamp(0.72rem,0.82vw,0.9rem)] text-center">
+                  {error}
+                </p>
+              )}
+
               {/* Submit */}
               <div className="flex justify-end">
                 <button
                   type="submit"
-                  disabled={overLimit}
+                  disabled={overLimit || loading}
                   className="bg-[#0e3874] text-white font-medium text-[clamp(0.8rem,1.12vw,1.15rem)] px-10 py-4 rounded-[10px] hover:bg-[#0b2d5e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
                 >
-                  Submit request
+                  {loading ? <Loader  className="animate-spin" /> : "Submit request"}
                 </button>
               </div>
 
