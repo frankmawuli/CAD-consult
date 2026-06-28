@@ -223,23 +223,7 @@ export const products: Product[] = [
       },
     ],
   },
-  {
-    slug: "trimble-gnss-empty-cases-3",
-    name: "Trimble GNSS\nEmpty Case",
-    fullName: "Trimble GNSS Empty Case",
-    image: "/images/products/trimble-gnss-empty-cases-3.png",
-    category: "gnss-sensors",
-    specs: [
-      {
-        group: "Physical",
-        items: [
-          { label: "Material", value: "Hard-shell protective case" },
-          { label: "Use",       value: "Storage and transport for GNSS equipment" },
-        ],
-      },
-    ],
-  },
-
+  
   // GNSS Sensors (additional antennas)
   {
     slug: "base-station-antenna",

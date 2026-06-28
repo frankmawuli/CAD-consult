@@ -76,7 +76,7 @@ export function confirmationEmailHtml(body: InquiryBody) {
           If you have any urgent questions, feel free to call us at
           <strong>(233-27) 7603276</strong>.
         </p>
-        <p style="color:#555;margin-top:32px">— The CAD Team</p>
+        <p style="color:#555;margin-top:32px"> CAD Consult Ghana </p>
       </div>
       <div style="padding:16px 32px;background:#eee;font-size:12px;color:#888">
         CAD · Tetteh Okuley Avenue, Abofu, Accra, Ghana

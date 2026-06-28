@@ -1,20 +1,26 @@
 "use client"
 
 import { useSearchParams } from "next/navigation"
-import { useEffect, useState } from "react"
+import { useEffect, useRef, useState } from "react"
 import { products } from "@/app/sales-and-support/products-data"
 import ProductCard from "./product-card"
 
-const ITEMS_PER_PAGE = 12
+const ITEMS_PER_PAGE = 9
 
 export default function ProductsGrid() {
   const searchParams = useSearchParams()
   const category = searchParams.get("category") ?? ""
   const [page, setPage] = useState(1)
+  const gridRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setPage(1)
   }, [category])
+
+  function changePage(next: number) {
+    setPage(next)
+    gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
+  }
 
   const filtered = category
     ? products.filter((p) => p.category === category)
@@ -24,7 +30,7 @@ export default function ProductsGrid() {
   const paginated = filtered.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE)
 
   return (
-    <div className="flex-1 flex flex-col gap-5">
+    <div ref={gridRef} className="flex-1 flex flex-col gap-5">
       <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-3 gap-5">
         {paginated.length > 0 ? (
           paginated.map((product, i) => <ProductCard key={i} product={product} />)
@@ -36,9 +42,9 @@ export default function ProductsGrid() {
       </div>
 
       {totalPages > 1 && (
-        <div className="flex items-center justify-end gap-2 pt-4">
+        <div className="flex items-center justify-end gap-2 py-24 ">
           <button
-            onClick={() => setPage((p) => Math.max(1, p - 1))}
+            onClick={() => changePage(Math.max(1, page - 1))}
             disabled={page === 1}
             className="px-4 py-2 rounded-[8px] border border-[#0e3874] text-[#0e3874] text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#0e3874] hover:text-white transition-colors"
           >
@@ -47,7 +53,7 @@ export default function ProductsGrid() {
           {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
             <button
               key={p}
-              onClick={() => setPage(p)}
+              onClick={() => changePage(p)}
               className={`w-9 h-9 rounded-[8px] text-sm font-medium transition-colors ${
                 p === page
                   ? "bg-[#0e3874] text-white"
@@ -58,7 +64,7 @@ export default function ProductsGrid() {
             </button>
           ))}
           <button
-            onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+            onClick={() => changePage(Math.min(totalPages, page + 1))}
             disabled={page === totalPages}
             className="px-4 py-2 rounded-[8px] border border-[#0e3874] text-[#0e3874] text-sm font-medium disabled:opacity-40 disabled:cursor-not-allowed hover:bg-[#0e3874] hover:text-white transition-colors"
           >

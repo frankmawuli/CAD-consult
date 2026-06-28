@@ -1,10 +1,16 @@
 import { Poppins, Geist_Mono } from "next/font/google"
+import type { Metadata } from "next"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { cn } from "@/lib/utils"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 import { Toaster } from "@/components/ui/sonner"
+
+export const metadata: Metadata = {
+  title: "CAD Consult Ghana",
+  description: "CAD Organization Portfolio",
+}
 
 const poppins = Poppins({
   subsets: ["latin"],
