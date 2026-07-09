@@ -2,12 +2,12 @@
 
 import { useSearchParams } from "next/navigation"
 import { useEffect, useRef, useState } from "react"
-import { products } from "@/app/sales-and-support/products-data"
+import type { Product } from "@/app/sales-and-support/products-data"
 import ProductCard from "./product-card"
 
 const ITEMS_PER_PAGE = 9
 
-export default function ProductsGrid() {
+export default function ProductsGrid({ products }: { products: Product[] }) {
   const searchParams = useSearchParams()
   const category = searchParams.get("category") ?? ""
   const [page, setPage] = useState(1)

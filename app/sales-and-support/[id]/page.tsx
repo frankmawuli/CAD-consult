@@ -1,7 +1,8 @@
 import Image from "next/image"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { products, getProductBySlug, type Product } from "../products-data"
+import type { Product } from "../products-data"
+import { getProducts, getProductBySlug } from "@/lib/products"
 
 function ProductCard({ product }: { product: Product }) {
   return (
@@ -42,10 +43,10 @@ export default async function ProductDetailPage({
   params: Promise<{ id: string }>
 }) {
   const { id } = await params
-  const product = getProductBySlug(id)
+  const product = await getProductBySlug(id)
   if (!product) notFound()
 
-  const otherProducts = products.filter((p) => p.slug !== product.slug)
+  const otherProducts = (await getProducts()).filter((p) => p.slug !== product.slug)
 
   return (
     <main className="bg-[#f1f1f1]">

@@ -3,8 +3,11 @@ import ServicesHero from "@/components/sales-and-support/services-hero"
 import ServicesSearch from "@/components/sales-and-support/services-search"
 import ProductSidebar from "@/components/sales-and-support/product-sidebar"
 import ProductsGrid from "@/components/sales-and-support/products-grid"
+import { getProducts } from "@/lib/products"
 
-export default function ServicesPage() {
+export default async function ServicesPage() {
+  const products = await getProducts()
+
   return (
     <main className="bg-[#f1f1f1]">
       <ServicesHero />
@@ -17,7 +20,7 @@ export default function ServicesPage() {
             <ProductSidebar />
           </Suspense>
           <Suspense>
-            <ProductsGrid />
+            <ProductsGrid products={products} />
           </Suspense>
         </div>
       </section>

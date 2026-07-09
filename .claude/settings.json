@@ -1,0 +1,10 @@
+{
+  "permissions": {
+    "allow": [
+      "WebFetch(domain:www.screeningeagle.com)",
+      "WebFetch(domain:www.contractors-tools.com)",
+      "WebFetch(domain:geomaticslandsurveying.com)",
+      "WebFetch(domain:trakkitgps.com)"
+    ]
+  }
+}
