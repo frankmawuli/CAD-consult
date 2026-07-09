@@ -11,7 +11,9 @@ export default async function ServicesPage() {
   return (
     <main className="bg-[#f1f1f1]">
       <ServicesHero />
-      <ServicesSearch />
+      <Suspense>
+        <ServicesSearch />
+      </Suspense>
 
       {/* Sidebar + Products */}
       <section className="px-[5%] pb-16 lg:pb-[500px]">

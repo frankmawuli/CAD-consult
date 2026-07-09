@@ -10,21 +10,30 @@ const ITEMS_PER_PAGE = 9
 export default function ProductsGrid({ products }: { products: Product[] }) {
   const searchParams = useSearchParams()
   const category = searchParams.get("category") ?? ""
+  const query = searchParams.get("q") ?? ""
   const [page, setPage] = useState(1)
   const gridRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
     setPage(1)
-  }, [category])
+  }, [category, query])
 
   function changePage(next: number) {
     setPage(next)
     gridRef.current?.scrollIntoView({ behavior: "smooth", block: "start" })
   }
 
-  const filtered = category
-    ? products.filter((p) => p.category === category)
-    : products
+  const normalizedQuery = query.trim().toLowerCase()
+
+  const filtered = products
+    .filter((p) => !category || p.category === category)
+    .filter(
+      (p) =>
+        !normalizedQuery ||
+        p.name.toLowerCase().includes(normalizedQuery) ||
+        p.fullName.toLowerCase().includes(normalizedQuery) ||
+        p.category.toLowerCase().includes(normalizedQuery)
+    )
 
   const totalPages = Math.ceil(filtered.length / ITEMS_PER_PAGE)
   const paginated = filtered.slice((page - 1) * ITEMS_PER_PAGE, page * ITEMS_PER_PAGE)
@@ -36,7 +45,9 @@ export default function ProductsGrid({ products }: { products: Product[] }) {
           paginated.map((product, i) => <ProductCard key={i} product={product} />)
         ) : (
           <p className="col-span-full text-center text-[#6a6a6a] py-12">
-            No products found in this category.
+            {normalizedQuery
+              ? `No products found for "${query}".`
+              : "No products found in this category."}
           </p>
         )}
       </div>
