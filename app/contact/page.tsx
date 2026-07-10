@@ -81,8 +81,8 @@ export default function ContactPage() {
       </section>
 
       {/* ── Contact Form ── */}
-      <section className="px-[5%] py-12 lg:py-20">
-        <div className="max-w-[1486px] mx-auto bg-white rounded-[38px] px-[5%] py-11 lg:py-16 shadow-sm">
+      <section className="py-12 sm:px-[5%] lg:py-20">
+        <div className="max-w-[1486px] mx-auto bg-white rounded-none sm:rounded-[38px] px-[5%] py-11 lg:py-16 shadow-sm">
           <h2 className="font-semibold text-black text-[clamp(1.4rem,2.8vw,2.6rem)] tracking-[-0.03em] text-center mb-10">
             Get In Touch With Us
           </h2>
@@ -223,7 +223,7 @@ export default function ContactPage() {
               <button
                 type="submit"
                 disabled={isSubmitting || overLimit}
-                className="bg-[#0e3874] text-white font-medium text-[clamp(0.8rem,1.12vw,1.3rem)] px-10 py-4 rounded-[10px] hover:bg-[#0b2d5e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full sm:w-auto bg-[#0e3874] text-white font-medium text-[clamp(0.8rem,1.12vw,1.3rem)] px-10 py-4 rounded-[10px] hover:bg-[#0b2d5e] transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
               >
                 {isSubmitting ? <Loader className="animate-spin" /> : "Submit message"}
               </button>

@@ -100,17 +100,17 @@ export default async function ProductDetailPage({
                 </div>
               ))}
             </div>
-            <div className="mt-10 flex flex-wrap justify-start gap-4 lg:justify-end">
+            <div className="mt-10 flex flex-col flex-wrap justify-start gap-4 sm:flex-row lg:justify-end">
               <Link
                 href={`/support?product=${encodeURIComponent(product.fullName)}`}
-                className="rounded-md bg-[#0e3874] px-8 py-3 font-medium text-white hover:bg-[#082b5b]"
+                className="rounded-md bg-[#0e3874] px-8 py-3 text-center font-medium text-white hover:bg-[#082b5b] sm:w-auto"
               >
                 Product Support
               </Link>
 
               <Link
                 href={`/sales-and-support/request?product=${encodeURIComponent(product.fullName)}`}
-                className="rounded-md bg-[#ffc425] px-8 py-3 font-medium text-black hover:bg-[#e8b321]"
+                className="rounded-md bg-[#ffc425] px-8 py-3 text-center font-medium text-black hover:bg-[#e8b321] sm:w-auto"
               >
                 Request Item
               </Link>
