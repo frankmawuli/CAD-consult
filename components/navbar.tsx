@@ -20,7 +20,7 @@ export function Navbar() {
 
   return (
     <nav className="fixed top-0 right-0 left-0 z-50 bg-white shadow-sm">
-      <div className="flex h-11 items-center justify-between px-[5%] lg:h-14">
+      <div className="flex h-14 items-center justify-between px-[5%]">
         {/* Logo */}
         <Link
           href="/"
@@ -63,8 +63,8 @@ export function Navbar() {
         >
           {open ? (
             <svg
-              width="17"
-              height="17"
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -75,8 +75,8 @@ export function Navbar() {
             </svg>
           ) : (
             <svg
-              width="17"
-              height="17"
+              width="24"
+              height="24"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -98,7 +98,7 @@ export function Navbar() {
                 <Link
                   href={href}
                   onClick={() => setOpen(false)}
-                  className={`block border-b border-gray-100 py-1.5 text-xs font-medium transition-colors ${
+                  className={`block border-b border-gray-100 py-1.5 text-center text-sm font-medium transition-colors ${
                     pathname === href ? "text-[#0e3874]" : "text-[#0e3874]"
                   }`}
                 >

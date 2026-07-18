@@ -7,6 +7,31 @@ import ProductCard from "./product-card"
 
 const ITEMS_PER_PAGE = 9
 
+function getPageNumbers(current: number, total: number, siblingCount = 1): (number | "ellipsis")[] {
+  const totalNumbers = siblingCount * 2 + 5 // first, last, current, 2 ellipses
+  if (total <= totalNumbers) {
+    return Array.from({ length: total }, (_, i) => i + 1)
+  }
+
+  const leftSibling = Math.max(current - siblingCount, 1)
+  const rightSibling = Math.min(current + siblingCount, total)
+
+  const showLeftEllipsis = leftSibling > 2
+  const showRightEllipsis = rightSibling < total - 1
+
+  const pages: (number | "ellipsis")[] = [1]
+
+  if (showLeftEllipsis) pages.push("ellipsis")
+  for (let p = Math.max(leftSibling, 2); p <= Math.min(rightSibling, total - 1); p++) {
+    pages.push(p)
+  }
+  if (showRightEllipsis) pages.push("ellipsis")
+
+  pages.push(total)
+
+  return pages
+}
+
 export default function ProductsGrid({ products }: { products: Product[] }) {
   const searchParams = useSearchParams()
   const category = searchParams.get("category") ?? ""
@@ -53,7 +78,7 @@ export default function ProductsGrid({ products }: { products: Product[] }) {
       </div>
 
       {totalPages > 1 && (
-        <div className="flex items-center justify-end gap-2 py-24 ">
+        <div className="flex flex-wrap items-center justify-center sm:justify-end gap-2 py-24">
           <button
             onClick={() => changePage(Math.max(1, page - 1))}
             disabled={page === 1}
@@ -61,19 +86,28 @@ export default function ProductsGrid({ products }: { products: Product[] }) {
           >
             Previous
           </button>
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map((p) => (
-            <button
-              key={p}
-              onClick={() => changePage(p)}
-              className={`w-9 h-9 rounded-[8px] text-sm font-medium transition-colors ${
-                p === page
-                  ? "bg-[#0e3874] text-white"
-                  : "border border-[#0e3874] text-[#0e3874] hover:bg-[#0e3874] hover:text-white"
-              }`}
-            >
-              {p}
-            </button>
-          ))}
+          {getPageNumbers(page, totalPages).map((p, i) =>
+            p === "ellipsis" ? (
+              <span
+                key={`ellipsis-${i}`}
+                className="w-9 h-9 flex items-center justify-center text-sm text-[#6a6a6a]"
+              >
+                &hellip;
+              </span>
+            ) : (
+              <button
+                key={p}
+                onClick={() => changePage(p)}
+                className={`w-9 h-9 rounded-[8px] text-sm font-medium transition-colors ${
+                  p === page
+                    ? "bg-[#0e3874] text-white"
+                    : "border border-[#0e3874] text-[#0e3874] hover:bg-[#0e3874] hover:text-white"
+                }`}
+              >
+                {p}
+              </button>
+            )
+          )}
           <button
             onClick={() => changePage(Math.min(totalPages, page + 1))}
             disabled={page === totalPages}

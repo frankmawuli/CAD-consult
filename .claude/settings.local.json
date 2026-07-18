@@ -48,7 +48,15 @@
       "WebFetch(domain:www.duncan-parnell.com)",
       "WebFetch(domain:www.neigps.com)",
       "Bash(node *)",
-      "Bash(npx tsx *)"
+      "Bash(npx tsx *)",
+      "mcp__plugin_figma_figma__get_metadata",
+      "Bash(python3 *)",
+      "WebFetch(domain:www.korecgroup.com)",
+      "WebFetch(domain:www.karaco.com)",
+      "WebFetch(domain:www.mainetechnical.com)",
+      "WebFetch(domain:surveyinstrumentsales.com)",
+      "WebFetch(domain:surveypro.us.com)",
+      "WebFetch(domain:www.xpertsurveyequipment.com)"
     ]
   }
 }

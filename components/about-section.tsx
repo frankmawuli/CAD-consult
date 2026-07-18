@@ -11,7 +11,7 @@ export function AboutSection() {
         </div>
 
         <div className="pt-0 lg:pt-3">
-          <h2 className="font-semibold text-[#0e3874] text-[1.52rem] sm:text-[1.84rem] lg:text-[2.2rem] leading-[1.1] mb-4 lg:mb-5">
+          <h2 className="font-semibold text-[#0e3874] text-[1.52rem] sm:text-[1.84rem] lg:text-[2.2rem] leading-[1.1] mb-4 lg:mb-5 text-center lg:text-left">
             CAD Consult Gh
           </h2>
           <p className="text-black text-justify text-[0.8rem] lg:text-[0.88rem] leading-relaxed mb-4">
