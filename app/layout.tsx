@@ -23,6 +23,9 @@ const fontMono = Geist_Mono({
   variable: "--font-mono",
 })
 
+export const viewport = {
+  themeColor: "#0E3874",
+}
 export default function RootLayout({
   children,
 }: Readonly<{
