@@ -1,8 +1,8 @@
 export function AboutSection() {
   return (
     <section className="bg-white py-11 lg:py-16 px-4 sm:px-8 mt-20">
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-start">
-        <div className="bg-[#d9d9d9] w-full aspect-595/900 flex items-center justify-center">
+      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-stretch">
+        <div className="bg-[#d9d9d9] w-full min-h-64 flex items-center justify-center">
           <img
             src="/images/about-placeholder.png"
             alt="About CAD Consult"
