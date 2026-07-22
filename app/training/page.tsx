@@ -5,7 +5,7 @@ export default function TrainingPage() {
     <main>
       <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-4 sm:px-6 mb-32">
         <Image
-          src="/images/training.png"
+          src="/images/training.jpg"
           alt=""
           fill
           className="object-cover"
