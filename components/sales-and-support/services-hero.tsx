@@ -4,7 +4,7 @@ export default function ServicesHero() {
   return (
     <section className="relative min-h-[70vh] flex flex-col items-center justify-center text-center px-4">
       <Image
-        src="/images/products/hero-bg.jpg"
+        src="/images/products-hero.jpg"
         alt=""
         fill
         className="object-cover object-center"
